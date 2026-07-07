@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onyx — Documentation</title>
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+    <!-- Open Graph / Telegram Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Onyx — Documentation">
+    <meta property="og:description" content="Полное руководство по установке и запуску Onyx. Complete installation and launch guide.">
+    <meta property="og:image" content="logo.svg">
+    <meta property="og:site_name" content="Onyx">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Onyx — Documentation">
+    <meta name="twitter:description" content="Installation Guide & Launch">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #05050a;
+            --bg-dark: #08080f;
+            --bg-main: #0b0b15;
+            --bg-sidebar: #08080f;
+            --bg-card: #11111c;
+            --bg-card-hover: #17172a;
+            --bg-elevated: #1c1c30;
+            --bg-input: #0d0d18;
+            --border: #1e1e34;
+            --border-light: #2a2a48;
+            --text-white: #ffffff;
+            --text-primary: #e8e8f0;
+            --text-secondary: #9090a8;
+            --text-muted: #5c5c78;
+            --orange: #7274FF;
+            --orange-light: #9698FF;
+            --orange-dark: #4E51E0;
+            --orange-vivid: #5C5EEB;
+            --orange-glow: rgba(114, 116, 255, 0.16);
+            --orange-glow-strong: rgba(114, 116, 255, 0.38);
+            --purple: #b57bff;
+            --purple-glow: rgba(181, 123, 255, 0.15);
+            --green: #10d876;
+            --green-glow: rgba(16, 216, 118, 0.12);
+            --red: #ff4757;
+            --red-glow: rgba(255, 71, 87, 0.1);
+            --blue: #3b8fff;
+            --blue-glow: rgba(59, 143, 255, 0.1);
+            --yellow: #fbbf24;
+            --yellow-glow: rgba(251, 191, 36, 0.1);
+            --gradient-orange: linear-gradient(135deg, #5C5EEB 0%, #7274FF 50%, #9698FF 100%);
+            --gradient-fire: linear-gradient(135deg, #4E51E0, #7274FF 45%, #b57bff);
+            --gradient-purple: linear-gradient(135deg, #7c3aed, #b57bff);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+            --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 40px rgba(114, 116, 255, 0.15);
+            --shadow-glow-strong: 0 0 60px rgba(114, 116, 255, 0.35);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { overflow-x: hidden; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-void);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* ========= ANIMATED AURORA BACKGROUND ========= */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 800px 600px at 15% 10%, rgba(114, 116, 255, 0.14), transparent 60%),
+                radial-gradient(ellipse 700px 500px at 85% 20%, rgba(168, 85, 247, 0.09), transparent 60%),
+                radial-gradient(ellipse 900px 700px at 50% 100%, rgba(114, 116, 255, 0.07), transparent 70%);
+            z-index: -2;
+            animation: auroraDrift 25s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+            background-size: 48px 48px;
+            z-index: -1;
+            pointer-events: none;
+            mask-image: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 0.6), transparent 85%);
+            -webkit-mask-image: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 0.6), transparent 85%);
+        }
+
+        @keyframes auroraDrift {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(3%, -2%); }
+            66% { transform: translate(-2%, 3%); }
+        }
+
+        /* ========= SCROLLBAR ========= */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--orange), var(--orange-dark));
+            border-radius: 4px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--orange-light); background-clip: padding-box; }
+
+        ::selection {
+            background: var(--orange-glow-strong);
+            color: var(--text-white);
+        }
+
+        /* ========= LAYOUT ========= */
+        .layout { display: flex; min-height: 100vh; position: relative; z-index: 1; }
+
+        /* ========= SIDEBAR ========= */
+        .sidebar {
+            width: 290px;
+            background: rgba(8, 8, 15, 0.7);
+            backdrop-filter: blur(24px) saturate(1.5);
+            -webkit-backdrop-filter: blur(24px) saturate(1.5);
+            border-right: 1px solid var(--border);
+            position: fixed;
+            top: 0; left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.4s var(--ease-out);
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 220px;
+            background: radial-gradient(ellipse at top, rgba(114, 116, 255, 0.09), transparent 70%);
+            pointer-events: none;
+        }
+
+        .sidebar-header {
+            padding: 22px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+        }
+
+        .sidebar-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 12px rgba(114, 116, 255, 0.5));
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 12px rgba(114, 116, 255, 0.45)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 22px rgba(114, 116, 255, 0.8)); transform: scale(1.04); }
+        }
+
+        .sidebar-brand { display: flex; flex-direction: column; }
+
+        .sidebar-brand-name {
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: linear-gradient(135deg, #ffffff 0%, #9698FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar-brand-name span {
+            color: var(--orange);
+            -webkit-text-fill-color: var(--orange);
+        }
+
+        .sidebar-brand-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.7px;
+            margin-top: 3px;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            background: var(--bg-void);
+            border-radius: var(--radius-sm);
+            padding: 4px;
+            margin: 18px 16px 4px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .lang-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.35s var(--ease-out);
+            font-family: inherit;
+            letter-spacing: 0.6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lang-btn:hover { color: var(--text-secondary); }
+
+        .lang-btn.active {
+            background: var(--gradient-orange);
+            color: var(--bg-void);
+            box-shadow: 0 4px 16px rgba(114, 116, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            transform: scale(1.02);
+        }
+
+        /* Sidebar Nav */
+        .sidebar-nav { padding: 14px 12px 32px; position: relative; }
+
+        .nav-section { margin-bottom: 8px; }
+
+        .nav-section-title {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--text-muted);
+            padding: 16px 12px 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-section-title::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--orange);
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: all 0.3s var(--ease-out);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(114, 116, 255, 0.07), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.7s var(--ease-out);
+        }
+
+        .nav-link:hover::before { transform: translateX(100%); }
+
+        .nav-link:hover {
+            background: rgba(114, 116, 255, 0.06);
+            color: var(--text-primary);
+            transform: translateX(3px);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(90deg, rgba(114, 116, 255, 0.16), rgba(114, 116, 255, 0.02));
+            color: var(--orange);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 22px;
+            background: var(--gradient-orange);
+            border-radius: 0 3px 3px 0;
+            box-shadow: 0 0 14px var(--orange);
+        }
+
+        .nav-icon {
+            font-size: 15px;
+            width: 22px;
+            text-align: center;
+            flex-shrink: 0;
+            transition: transform 0.35s var(--ease-out);
+        }
+
+        .nav-link:hover .nav-icon { transform: scale(1.2) rotate(-6deg); }
+        .nav-link.active .nav-icon { filter: drop-shadow(0 0 6px var(--orange-glow-strong)); }
+
+        /* Status indicator */
+        .sidebar-status {
+            margin: 14px 16px;
+            padding: 11px 14px;
+            background: linear-gradient(90deg, var(--green-glow), transparent 90%);
+            border: 1px solid rgba(16, 216, 118, 0.22);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--green);
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: statusPulse 2s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--green);
+            flex-shrink: 0;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 216, 118, 0.55), 0 0 10px var(--green); }
+            50% { opacity: 0.75; box-shadow: 0 0 0 7px rgba(16, 216, 118, 0), 0 0 14px var(--green); }
+        }
+
+        /* ========= MAIN ========= */
+        .main {
+            margin-left: 290px;
+            flex: 1;
+            min-width: 0;
+            position: relative;
+        }
+
+        /* Top Bar */
+        .topbar {
+            position: sticky;
+            top: 0;
+            background: rgba(8, 8, 15, 0.7);
+            backdrop-filter: blur(24px) saturate(1.5);
+            -webkit-backdrop-filter: blur(24px) saturate(1.5);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 50;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .breadcrumb a:hover { color: var(--orange); }
+        .breadcrumb .sep { color: var(--border-light); font-size: 10px; }
+        .breadcrumb #breadcrumb-current { color: var(--text-primary); font-weight: 500; }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 9px 15px;
+            width: 300px;
+            transition: all 0.35s var(--ease-out);
+        }
+
+        .search-box:focus-within {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px var(--orange-glow), 0 0 24px var(--orange-glow);
+            transform: translateY(-1px);
+        }
+
+        .search-box input {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 13px;
+            width: 100%;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-box input::placeholder { color: var(--text-muted); }
+        .search-icon { color: var(--text-muted); font-size: 14px; transition: color 0.25s; }
+        .search-box:focus-within .search-icon { color: var(--orange); }
+
+        /* ========= CONTENT ========= */
+        .content {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 48px 40px 100px;
+        }
+
+        .page-header { margin-bottom: 36px; }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: -0.8px;
+            margin-bottom: 14px;
+            color: var(--text-white);
+            line-height: 1.12;
+        }
+
+        .page-header h1 .accent {
+            background: var(--gradient-orange);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: gradientFlow 5s ease-in-out infinite;
+            filter: drop-shadow(0 4px 20px rgba(114, 116, 255, 0.25));
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .page-header .subtitle {
+            font-size: 15.5px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            max-width: 720px;
+        }
+
+        .section { display: none; }
+        .section.active {
+            display: block;
+            animation: sectionIn 0.6s var(--ease-out);
+        }
+
+        @keyframes sectionIn {
+            from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 800;
+            margin: 40px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-white);
+            letter-spacing: -0.3px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gradient-orange);
+            border-radius: 2px;
+            box-shadow: 0 0 12px var(--orange-glow-strong);
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 26px 0 12px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        a { color: var(--orange-light); text-decoration: none; transition: all 0.2s; }
+        a:hover { color: var(--orange); text-decoration: underline; text-shadow: 0 0 12px var(--orange-glow); }
+
+        /* ========= ALERTS ========= */
+        .alert {
+            padding: 18px 22px;
+            border-radius: var(--radius-md);
+            margin: 22px 0;
+            font-size: 14px;
+            line-height: 1.65;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .alert::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: currentColor;
+            opacity: 0.7;
+            box-shadow: 0 0 20px currentColor;
+        }
+
+        .alert-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .alert-warning {
+            background: linear-gradient(90deg, var(--yellow-glow), transparent 90%);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            color: var(--yellow);
+        }
+
+        .alert-danger {
+            background: linear-gradient(90deg, var(--red-glow), transparent 90%);
+            border: 1px solid rgba(255, 71, 87, 0.2);
+            color: var(--red);
+        }
+
+        .alert-info {
+            background: linear-gradient(90deg, var(--blue-glow), transparent 90%);
+            border: 1px solid rgba(59, 143, 255, 0.2);
+            color: var(--blue);
+        }
+
+        .alert-success {
+            background: linear-gradient(90deg, var(--green-glow), transparent 90%);
+            border: 1px solid rgba(16, 216, 118, 0.2);
+            color: var(--green);
+        }
+
+        .alert-orange {
+            background: linear-gradient(90deg, var(--orange-glow), transparent 90%);
+            border: 1px solid rgba(114, 116, 255, 0.22);
+            color: var(--orange-light);
+        }
+
+        .alert strong { color: inherit; font-weight: 700; }
+
+        /* ========= STEPS ========= */
+        .steps {
+            counter-reset: step;
+            margin: 22px 0;
+        }
+
+        .step {
+            counter-increment: step;
+            position: relative;
+            padding: 20px 24px 20px 74px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(17, 17, 28, 0.55) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            transition: all 0.4s var(--ease-out);
+            overflow: hidden;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 30%, rgba(114, 116, 255, 0.04) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.9s var(--ease-out);
+            pointer-events: none;
+        }
+
+        .step:hover::after { transform: translateX(100%); }
+
+        .step:hover {
+            border-color: rgba(114, 116, 255, 0.3);
+            background: linear-gradient(135deg, var(--bg-card-hover) 0%, rgba(23, 23, 42, 0.7) 100%);
+            box-shadow: var(--shadow-glow), 0 6px 24px rgba(0, 0, 0, 0.3);
+            transform: translateX(4px);
+        }
+
+        .step::before {
+            content: counter(step);
+            position: absolute;
+            left: 20px;
+            top: 18px;
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-orange);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 14px;
+            color: var(--bg-void);
+            box-shadow: 0 4px 16px rgba(114, 116, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.4s var(--ease-out);
+        }
+
+        .step:hover::before {
+            transform: scale(1.12) rotate(-6deg);
+            box-shadow: 0 8px 28px rgba(114, 116, 255, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .step strong { color: var(--text-white); font-weight: 700; }
+        .step a { color: var(--orange-light); font-weight: 500; }
+
+        /* ========= ERROR CARDS ========= */
+        .error-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(17, 17, 28, 0.65) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.35s var(--ease-out);
+            position: relative;
+        }
+
+        .error-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--gradient-orange);
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+
+        .error-card:hover::before,
+        .error-card.open::before { opacity: 1; }
+
+        .error-card:hover {
+            border-color: rgba(114, 116, 255, 0.28);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), var(--shadow-glow);
+            transform: translateX(2px);
+        }
+
+        .error-card.open {
+            border-color: rgba(114, 116, 255, 0.4);
+            box-shadow: var(--shadow-glow-strong), 0 8px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        .error-header {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.25s;
+        }
+
+        .error-header:hover { background: rgba(114, 116, 255, 0.04); }
+
+        .error-number {
+            background: var(--gradient-orange);
+            color: var(--bg-void);
+            font-size: 11px;
+            font-weight: 900;
+            padding: 4px 11px;
+            border-radius: 7px;
+            flex-shrink: 0;
+            min-width: 38px;
+            text-align: center;
+            letter-spacing: 0.4px;
+            box-shadow: 0 2px 10px rgba(114, 116, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .error-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .error-arrow {
+            color: var(--text-muted);
+            font-size: 11px;
+            transition: all 0.4s var(--ease-out);
+            flex-shrink: 0;
+        }
+
+        .error-card.open .error-arrow {
+            transform: rotate(90deg);
+            color: var(--orange);
+            filter: drop-shadow(0 0 6px var(--orange));
+        }
+
+        .error-body {
+            display: none;
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .error-card.open .error-body {
+            display: block;
+            animation: bodyIn 0.4s var(--ease-out);
+        }
+
+        @keyframes bodyIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-body p { margin-top: 14px; }
+
+        .solution-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--green);
+            margin-top: 16px;
+            margin-bottom: 10px;
+            padding: 5px 12px;
+            background: var(--green-glow);
+            border-radius: 8px;
+            border: 1px solid rgba(16, 216, 118, 0.22);
+            box-shadow: 0 0 16px rgba(16, 216, 118, 0.08);
+        }
+
+        .solution-list { list-style: none; padding: 0; }
+
+        .solution-list li {
+            position: relative;
+            padding: 6px 0 6px 24px;
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .solution-list li::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 15px;
+            width: 7px;
+            height: 7px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--orange);
+        }
+
+        .solution-list li strong { color: var(--text-white); }
+        .solution-list li a { color: var(--orange-light); }
+
+        .screenshot-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 14px;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .screenshot-link:hover {
+            border-color: var(--orange);
+            color: var(--orange-light);
+            text-decoration: none;
+            background: var(--orange-glow);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px var(--orange-glow);
+        }
+
+        /* Code block */
+        .code-block {
+            background: var(--bg-void);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            color: var(--orange-light);
+            margin: 12px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--gradient-orange);
+            box-shadow: 0 0 12px var(--orange);
+        }
+
+        /* Kbd */
+        kbd {
+            background: linear-gradient(180deg, var(--bg-elevated), var(--bg-card));
+            border: 1px solid var(--border-light);
+            border-bottom: 2px solid var(--border-light);
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-white);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            font-weight: 600;
+        }
+
+        /* ========= WELCOME FEATURES ========= */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(17, 17, 28, 0.55) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px 22px;
+            text-align: center;
+            transition: all 0.45s var(--ease-out);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(114, 116, 255, 0.15), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s;
+            pointer-events: none;
+        }
+
+        .feature-card:hover::before { opacity: 1; }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(114, 116, 255, 0.35);
+            box-shadow: var(--shadow-lift), 0 0 40px rgba(114, 116, 255, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 34px;
+            margin-bottom: 12px;
+            display: inline-block;
+            transition: transform 0.45s var(--ease-out);
+            filter: drop-shadow(0 4px 12px rgba(114, 116, 255, 0.2));
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.18) rotate(-8deg);
+            filter: drop-shadow(0 6px 20px rgba(114, 116, 255, 0.5));
+        }
+
+        .feature-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 6px;
+        }
+
+        .feature-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* ========= MOBILE ========= */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-orange);
+            border: none;
+            border-radius: 18px;
+            color: var(--bg-void);
+            font-size: 24px;
+            font-weight: 800;
+            cursor: pointer;
+            z-index: 200;
+            box-shadow: 0 8px 32px rgba(114, 116, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            transition: all 0.35s var(--ease-out);
+        }
+
+        .mobile-toggle:hover {
+            transform: scale(1.06) rotate(4deg);
+            box-shadow: 0 12px 40px rgba(114, 116, 255, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .mobile-toggle:active { transform: scale(0.95); }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 99;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); width: 280px; }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.open { display: block; }
+            .main { margin-left: 0; }
+            .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+            .content { padding: 28px 20px 80px; }
+            .topbar { padding: 12px 20px; }
+            .search-box { width: 180px; }
+            .page-header h1 { font-size: 26px; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+
+        .error-card.search-hidden { display: none; }
+
+        /* Divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-light) 30%, var(--border-light) 70%, transparent);
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 4px;
+            background: var(--gradient-orange);
+            border-radius: 3px;
+            box-shadow: 0 0 16px var(--orange-glow-strong);
+        }
+
+        /* Reveal animation for cards */
+        .section.active .step,
+        .section.active .error-card,
+        .section.active .alert,
+        .section.active .feature-card {
+            animation: revealCard 0.55s var(--ease-out) backwards;
+        }
+
+        .section.active .step:nth-child(1) { animation-delay: 0.05s; }
+        .section.active .step:nth-child(2) { animation-delay: 0.10s; }
+        .section.active .step:nth-child(3) { animation-delay: 0.15s; }
+        .section.active .step:nth-child(4) { animation-delay: 0.20s; }
+        .section.active .step:nth-child(5) { animation-delay: 0.25s; }
+        .section.active .step:nth-child(6) { animation-delay: 0.30s; }
+        .section.active .step:nth-child(7) { animation-delay: 0.35s; }
+        .section.active .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .section.active .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .section.active .feature-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes revealCard {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.svg" alt="Onyx" class="sidebar-logo">
+                <div class="sidebar-brand">
+                    <a href="#" class="sidebar-brand-name">ONYX</a>
+                    <span class="sidebar-brand-sub">Documentation</span>
+                </div>
+            </div>
+
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
+            </div>
+
+            <div class="sidebar-status">
+                <span class="status-dot"></span>
+                <span data-ru="Все системы работают" data-en="All systems operational">Все системы работают</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title" data-ru="Начало работы" data-en="Getting Started">Начало работы</div>
+                    <a class="nav-link active" onclick="showPage('welcome')" data-page="welcome">
+                        <span class="nav-icon">📖</span>
+                        <span data-ru="Введение" data-en="Introduction">Введение</span>
+                    </a>
+                    <a class="nav-link" onclick="showPage('preparation')" data-page="preparation">
+                        <span class="nav-icon">⚙️</span>
+                        <span data-ru="Подготовка ПК" data-en="PC Preparation">Подготовка ПК</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title" data-ru="Запуск" data-en="Launch">Запуск</div>
+                    <a class="nav-link" onclick="showPage('launch-rust-pro')" data-page="launch-rust-pro">
+                        <span class="nav-icon">🎮</span>
+                        <span data-ru="Rust PRO" data-en="Rust PRO">Rust PRO</span>
+                    </a>
+                    <a class="nav-link" onclick="showPage('launch-rust-lite')" data-page="launch-rust-lite">
+                        <span class="nav-icon">🎮</span>
+                        <span data-ru="Rust LITE" data-en="Rust LITE">Rust LITE</span>
+                    </a>
+                    <a class="nav-link" onclick="showPage('launch-apex')" data-page="launch-apex">
+                        <span class="nav-icon">🎮</span>
+                        <span data-ru="Apex" data-en="Apex">Apex</span>
+                    </a>
+                    <a class="nav-link" onclick="showPage('launch-unturned')" data-page="launch-unturned">
+                        <span class="nav-icon">🎮</span>
+                        <span data-ru="Unturned External" data-en="Unturned External">Unturned External</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title" data-ru="Помощь" data-en="Help">Помощь</div>
+                    <a class="nav-link" onclick="showPage('troubleshooting')" data-page="troubleshooting">
+                        <span class="nav-icon">🛠️</span>
+                        <span data-ru="Частые проблемы" data-en="Common Issues">Частые проблемы</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+        <!-- Main -->
+        <main class="main">
+            <div class="topbar">
+                <div class="breadcrumb">
+                    <span>Onyx</span>
+                    <span class="sep">›</span>
+                    <span data-ru="Документация" data-en="Documentation">Документация</span>
+                    <span class="sep">›</span>
+                    <span id="breadcrumb-current" data-ru="Введение" data-en="Introduction">Введение</span>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" data-placeholder-ru="Поиск по ошибкам..." data-placeholder-en="Search errors..." placeholder="Поиск по ошибкам..." oninput="handleSearch(this.value)">
+                </div>
+            </div>
+
+            <div class="content">
+
+                <!-- ===================== WELCOME ===================== -->
+                <div class="section active" id="page-welcome">
+                    <div class="page-header">
+                        <h1 data-ru="Документация <span class='accent'>Onyx</span>" data-en="<span class='accent'>Onyx</span> Documentation"></h1>
+                        <p class="subtitle" data-ru="Полное руководство по установке и запуску Onyx для всех поддерживаемых игр." data-en="Complete guide for installation and launch of Onyx across all supported games."></p>
+                    </div>
+
+                    <div class="alert alert-orange">
+                        <span class="alert-icon">⚡</span>
+                        <div data-ru="Впервые используете Onyx? Начните с раздела <strong>Подготовка ПК</strong>, затем перейдите к <strong>Запуску</strong> нужной игры." data-en="First time using Onyx? Start with <strong>PC Preparation</strong>, then proceed to <strong>Launch</strong> for your game."></div>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card" onclick="showPage('preparation')">
+                            <div class="feature-icon">⚙️</div>
+                            <div class="feature-title" data-ru="Подготовка ПК" data-en="PC Preparation"></div>
+                            <div class="feature-desc" data-ru="Настройка системы перед запуском" data-en="System setup before launch"></div>
+                        </div>
+                        <div class="feature-card" onclick="showPage('launch-rust-pro')">
+                            <div class="feature-icon">🚀</div>
+                            <div class="feature-title" data-ru="Запуск" data-en="Launch Guide"></div>
+                            <div class="feature-desc" data-ru="Пошаговые инструкции по играм" data-en="Step-by-step instructions"></div>
+                        </div>
+                        <div class="feature-card" onclick="showPage('troubleshooting')">
+                            <div class="feature-icon">🛠️</div>
+                            <div class="feature-title" data-ru="Частые проблемы" data-en="Common Issues"></div>
+                            <div class="feature-desc" data-ru="Быстрые решения типовых ситуаций" data-en="Quick fixes for common cases"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <h2 data-ru="Быстрый старт" data-en="Quick Start"></h2>
+
+                    <div class="steps">
+                        <div class="step" data-ru="<strong>Подготовьте ПК</strong> — отключите защитные службы Windows, антивирусы и сторонние анти-чит системы." data-en="<strong>Prepare your PC</strong> — disable Windows security services, antivirus and third-party anti-cheat systems."></div>
+                        <div class="step" data-ru="<strong>Скачайте лоадер</strong> — используйте свой ключ для скачивания: <a href='https://onyx.win/loader' target='_blank'>Download</a>." data-en="<strong>Download the loader</strong> — use your key to download: <a href='https://onyx.win/loader' target='_blank'>Download</a>."></div>
+                        <div class="step" data-ru="<strong>Запустите и играйте</strong> — следуйте пошаговой инструкции из раздела «Запуск»." data-en="<strong>Launch and play</strong> — follow the step-by-step guide in the 'Launch' section."></div>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <span class="alert-icon">⚠️</span>
+                        <div data-ru="Если что-то пошло не так — сначала внимательно перепройдите раздел <strong>Подготовка ПК</strong>, затем загляните в <strong>Частые проблемы</strong>." data-en="If something goes wrong — first re-check the <strong>PC Preparation</strong> section, then look at <strong>Common Issues</strong>."></div>
+                    </div>
+                </div>
+
+                <!-- ===================== PREPARATION ===================== -->
+                <div class="section" id="page-preparation">
+                    <div class="page-header">
+                        <h1 data-ru="Подготовка <span class='accent'>компьютера</span>" data-en="<span class='accent'>PC</span> Preparation"></h1>
+                        <p class="subtitle" data-ru="Перед использованием чита необходимо подготовить Ваш компьютер." data-en="Before using the cheat, you need to prepare your computer."></p>
+                    </div>
+
+                    <div class="alert alert-danger">
+                        <span class="alert-icon">🔴</span>
+                        <div data-ru="<strong>ОБЯЗАТЕЛЬНО</strong> выполните все пункты ниже перед первым запуском!" data-en="<strong>MANDATORY</strong> — complete all steps below before the first launch!"></div>
+                    </div>
+
+                    <h2 data-ru="Отключение защитных служб" data-en="Disabling Security Services"></h2>
+
+                    <div class="steps">
+                        <div class="step" data-ru="<strong>Отключите Защитник Windows</strong> — скачайте <a href='https://www.softportal.com/software-43861-defender-control.html' target='_blank'>Defender Control</a>, запустите от имени администратора и нажмите кнопку отключения. Кнопка должна стать <strong>красной</strong>." data-en="<strong>Disable Windows Defender</strong> — download <a href='https://www.softportal.com/software-43861-defender-control.html' target='_blank'>Defender Control</a>, run as administrator and click disable. The button should turn <strong>red</strong>."></div>
+                        <div class="step" data-ru="<strong>Удалите антивирусы</strong> — Kaspersky, Avast, Avira, ESET и подобные. Используйте официальные утилиты удаления от производителя." data-en="<strong>Uninstall antivirus software</strong> — Kaspersky, Avast, Avira, ESET, etc. Use official uninstall utilities from the vendor."></div>
+                        <div class="step" data-ru="<strong>Удалите анти-читы</strong> — Faceit, Riot Vanguard и аналогичные. Используйте <a href='https://www.softportal.com/software-6084-revo-uninstaller.html' target='_blank'>Revo Uninstaller</a> для полного удаления." data-en="<strong>Uninstall anti-cheats</strong> — Faceit, Riot Vanguard and similar. Use <a href='https://www.softportal.com/software-6084-revo-uninstaller.html' target='_blank'>Revo Uninstaller</a> for complete removal."></div>
+                        <div class="step" data-ru="<strong>Очистите папку Temp</strong> — <a href='https://altarena.ru/kak-ochistit-papku-temp-v-windows-10-avtomaticheski/' target='_blank'>Инструкция по очистке</a>." data-en="<strong>Clear the Temp folder</strong> — <a href='https://altarena.ru/kak-ochistit-papku-temp-v-windows-10-avtomaticheski/' target='_blank'>Cleanup guide</a>."></div>
+                        <div class="step" data-ru="<strong>Перезагрузите компьютер</strong> после выполнения всех действий." data-en="<strong>Restart your computer</strong> after completing all actions."></div>
+                    </div>
+
+                </div>
+
+                <!-- ===================== LAUNCH: RUST PRO ===================== -->
+                <div class="section" id="page-launch-rust-pro">
+                    <div class="page-header">
+                        <h1 data-ru="Запуск <span class='accent'>Rust PRO</span>" data-en="<span class='accent'>Rust PRO</span> Launch Guide"></h1>
+                        <p class="subtitle" data-ru="Пошаговая инструкция по запуску Rust PRO." data-en="Step-by-step launch instructions for Rust PRO."></p>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <span class="alert-icon">⚠️</span>
+                        <div data-ru="Убедитесь, что Вы выполнили все пункты из раздела <strong>Подготовка ПК</strong>." data-en="Make sure you completed all steps from <strong>PC Preparation</strong>."></div>
+                    </div>
+
+                    <h2 data-ru="Инструкция по запуску" data-en="Launch Instructions"></h2>
+
+                    <div class="steps">
+                        <div class="step" data-ru="Запустите игру, в настройках установите режим окна <strong>«Полноэкранный в окне»</strong>, затем <strong>закройте</strong> игру." data-en="Launch the game, set window mode to <strong>'Fullscreen Windowed'</strong> in settings, then <strong>close</strong> the game."></div>
+                        <div class="step" data-ru="Скачайте лоадер: <a href='https://onyx.win/loader' target='_blank'>Download</a>, используя свой ключ." data-en="Download the loader: <a href='https://onyx.win/loader' target='_blank'>Download</a>, using your key."></div>
+                        <div class="step" data-ru="Запустите файл <strong>от имени администратора</strong>. Выберите игру из списка и нажмите <strong>«Запустить»</strong>." data-en="Run the file <strong>as administrator</strong>. Select your game and click <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="Дождитесь закрытия лоадера. При успешном инжекте — сообщение с <strong>✅ галочкой</strong>. Появится окно перезагрузки — нажмите <strong>«Да»</strong>." data-en="Wait for the loader to close. On success — a <strong>✅ checkmark</strong> message. A reboot prompt appears — click <strong>'Yes'</strong>."></div>
+                        <div class="step" data-ru="После перезагрузки: снова запустите лоадер от имени администратора → выберите игру → <strong>«Запустить»</strong>." data-en="After restart: launch the loader again as admin → select game → <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="<strong>СРАЗУ</strong> запустите игру. Дождитесь полной загрузки до главного меню." data-en="<strong>IMMEDIATELY</strong> launch the game. Wait for full load to main menu."></div>
+                        <div class="step" data-ru="Нажмите <kbd>Del</kbd> для вызова меню чита. Для выгрузки чита нажмите <kbd>End</kbd>." data-en="Press <kbd>Del</kbd> to open the cheat menu. Press <kbd>End</kbd> to unload the cheat."></div>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <span class="alert-icon">✅</span>
+                        <div data-ru="Меню чита появится в левом верхнем углу. Если возникли проблемы — смотрите раздел <strong>Частые проблемы</strong>." data-en="Cheat menu will appear in the upper left corner. If issues occur — see <strong>Common Issues</strong>."></div>
+                    </div>
+                </div>
+
+                <!-- ===================== LAUNCH: RUST LITE ===================== -->
+                <div class="section" id="page-launch-rust-lite">
+                    <div class="page-header">
+                        <h1 data-ru="Запуск <span class='accent'>Rust LITE</span>" data-en="<span class='accent'>Rust LITE</span> Launch Guide"></h1>
+                        <p class="subtitle" data-ru="Пошаговая инструкция по запуску Rust LITE." data-en="Step-by-step launch instructions for Rust LITE."></p>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <span class="alert-icon">⚠️</span>
+                        <div data-ru="Убедитесь, что Вы выполнили все пункты из раздела <strong>Подготовка ПК</strong>." data-en="Make sure you completed all steps from <strong>PC Preparation</strong>."></div>
+                    </div>
+
+                    <h2 data-ru="Инструкция по запуску" data-en="Launch Instructions"></h2>
+
+                    <div class="steps">
+                        <div class="step" data-ru="Запустите игру, в настройках установите режим окна <strong>«Полноэкранный в окне»</strong>, затем <strong>закройте</strong> игру." data-en="Launch the game, set window mode to <strong>'Fullscreen Windowed'</strong> in settings, then <strong>close</strong> the game."></div>
+                        <div class="step" data-ru="Скачайте лоадер: <a href='https://onyx.win/loader' target='_blank'>Download</a>, используя свой ключ." data-en="Download the loader: <a href='https://onyx.win/loader' target='_blank'>Download</a>, using your key."></div>
+                        <div class="step" data-ru="Запустите файл <strong>от имени администратора</strong>. Выберите игру из списка и нажмите <strong>«Запустить»</strong>." data-en="Run the file <strong>as administrator</strong>. Select your game and click <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="Дождитесь закрытия лоадера. При успешном инжекте — сообщение с <strong>✅ галочкой</strong>. Появится окно перезагрузки — нажмите <strong>«Да»</strong>." data-en="Wait for the loader to close. On success — a <strong>✅ checkmark</strong> message. A reboot prompt appears — click <strong>'Yes'</strong>."></div>
+                        <div class="step" data-ru="После перезагрузки: снова запустите лоадер от имени администратора → выберите игру → <strong>«Запустить»</strong>." data-en="After restart: launch the loader again as admin → select game → <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="<strong>СРАЗУ</strong> запустите игру. Дождитесь полной загрузки до главного меню." data-en="<strong>IMMEDIATELY</strong> launch the game. Wait for full load to main menu."></div>
+                        <div class="step" data-ru="Нажмите <kbd>Del</kbd> для вызова меню чита. Для выгрузки чита нажмите <kbd>End</kbd>." data-en="Press <kbd>Del</kbd> to open the cheat menu. Press <kbd>End</kbd> to unload the cheat."></div>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <span class="alert-icon">✅</span>
+                        <div data-ru="Меню чита появится в левом верхнем углу. Если возникли проблемы — смотрите раздел <strong>Частые проблемы</strong>." data-en="Cheat menu will appear in the upper left corner. If issues occur — see <strong>Common Issues</strong>."></div>
+                    </div>
+                </div>
+
+                <!-- ===================== LAUNCH: APEX ===================== -->
+                <div class="section" id="page-launch-apex">
+                    <div class="page-header">
+                        <h1 data-ru="Запуск <span class='accent'>Apex</span>" data-en="<span class='accent'>Apex</span> Launch Guide"></h1>
+                        <p class="subtitle" data-ru="Пошаговая инструкция по запуску Apex." data-en="Step-by-step launch instructions for Apex."></p>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <span class="alert-icon">⚠️</span>
+                        <div data-ru="Убедитесь, что Вы выполнили все пункты из раздела <strong>Подготовка ПК</strong>." data-en="Make sure you completed all steps from <strong>PC Preparation</strong>."></div>
+                    </div>
+
+                    <h2 data-ru="Инструкция по запуску" data-en="Launch Instructions"></h2>
+
+                    <div class="steps">
+                        <div class="step" data-ru="Запустите игру, в настройках установите режим окна <strong>«Полноэкранный в окне»</strong>, затем <strong>закройте</strong> игру." data-en="Launch the game, set window mode to <strong>'Fullscreen Windowed'</strong> in settings, then <strong>close</strong> the game."></div>
+                        <div class="step" data-ru="Скачайте лоадер: <a href='https://onyx.win/loader' target='_blank'>Download</a>, используя свой ключ." data-en="Download the loader: <a href='https://onyx.win/loader' target='_blank'>Download</a>, using your key."></div>
+                        <div class="step" data-ru="Запустите файл <strong>от имени администратора</strong>. Выберите игру из списка и нажмите <strong>«Запустить»</strong>." data-en="Run the file <strong>as administrator</strong>. Select your game and click <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="Дождитесь закрытия лоадера. При успешном инжекте — сообщение с <strong>✅ галочкой</strong>. Появится окно перезагрузки — нажмите <strong>«Да»</strong>." data-en="Wait for the loader to close. On success — a <strong>✅ checkmark</strong> message. A reboot prompt appears — click <strong>'Yes'</strong>."></div>
+                        <div class="step" data-ru="После перезагрузки: снова запустите лоадер от имени администратора → выберите игру → <strong>«Запустить»</strong>." data-en="After restart: launch the loader again as admin → select game → <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="<strong>СРАЗУ</strong> запустите игру. Дождитесь полной загрузки до главного меню." data-en="<strong>IMMEDIATELY</strong> launch the game. Wait for full load to main menu."></div>
+                        <div class="step" data-ru="Нажмите <kbd>Del</kbd> для вызова меню чита. Для выгрузки чита нажмите <kbd>End</kbd>." data-en="Press <kbd>Del</kbd> to open the cheat menu. Press <kbd>End</kbd> to unload the cheat."></div>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <span class="alert-icon">✅</span>
+                        <div data-ru="Меню чита появится в левом верхнем углу. Если возникли проблемы — смотрите раздел <strong>Частые проблемы</strong>." data-en="Cheat menu will appear in the upper left corner. If issues occur — see <strong>Common Issues</strong>."></div>
+                    </div>
+                </div>
+
+                <!-- ===================== LAUNCH: UNTURNED EXTERNAL ===================== -->
+                <div class="section" id="page-launch-unturned">
+                    <div class="page-header">
+                        <h1 data-ru="Запуск <span class='accent'>Unturned External</span>" data-en="<span class='accent'>Unturned External</span> Launch Guide"></h1>
+                        <p class="subtitle" data-ru="Пошаговая инструкция по запуску Unturned External." data-en="Step-by-step launch instructions for Unturned External."></p>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <span class="alert-icon">⚠️</span>
+                        <div data-ru="Убедитесь, что Вы выполнили все пункты из раздела <strong>Подготовка ПК</strong>." data-en="Make sure you completed all steps from <strong>PC Preparation</strong>."></div>
+                    </div>
+
+                    <h2 data-ru="Инструкция по запуску" data-en="Launch Instructions"></h2>
+
+                    <div class="steps">
+                        <div class="step" data-ru="Запустите игру, в настройках установите режим окна <strong>«Полноэкранный в окне»</strong>, затем <strong>закройте</strong> игру." data-en="Launch the game, set window mode to <strong>'Fullscreen Windowed'</strong> in settings, then <strong>close</strong> the game."></div>
+                        <div class="step" data-ru="Скачайте лоадер: <a href='https://onyx.win/loader' target='_blank'>Download</a>, используя свой ключ." data-en="Download the loader: <a href='https://onyx.win/loader' target='_blank'>Download</a>, using your key."></div>
+                        <div class="step" data-ru="Запустите файл <strong>от имени администратора</strong>. Выберите игру из списка и нажмите <strong>«Запустить»</strong>." data-en="Run the file <strong>as administrator</strong>. Select your game and click <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="Дождитесь закрытия лоадера. При успешном инжекте — сообщение с <strong>✅ галочкой</strong>. Появится окно перезагрузки — нажмите <strong>«Да»</strong>." data-en="Wait for the loader to close. On success — a <strong>✅ checkmark</strong> message. A reboot prompt appears — click <strong>'Yes'</strong>."></div>
+                        <div class="step" data-ru="После перезагрузки: снова запустите лоадер от имени администратора → выберите игру → <strong>«Запустить»</strong>." data-en="After restart: launch the loader again as admin → select game → <strong>'Run'</strong>."></div>
+                        <div class="step" data-ru="<strong>СРАЗУ</strong> запустите игру. Дождитесь полной загрузки до главного меню." data-en="<strong>IMMEDIATELY</strong> launch the game. Wait for full load to main menu."></div>
+                        <div class="step" data-ru="Нажмите <kbd>Del</kbd> для вызова меню чита. Для выгрузки чита нажмите <kbd>End</kbd>." data-en="Press <kbd>Del</kbd> to open the cheat menu. Press <kbd>End</kbd> to unload the cheat."></div>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <span class="alert-icon">✅</span>
+                        <div data-ru="Меню чита появится в левом верхнем углу. Если возникли проблемы — смотрите раздел <strong>Частые проблемы</strong>." data-en="Cheat menu will appear in the upper left corner. If issues occur — see <strong>Common Issues</strong>."></div>
+                    </div>
+                </div>
+
+                <!-- ===================== TROUBLESHOOTING ===================== -->
+                <div class="section" id="page-troubleshooting">
+                    <div class="page-header">
+                        <h1 data-ru="Частые <span class='accent'>проблемы</span>" data-en="Common <span class='accent'>Issues</span>"></h1>
+                        <p class="subtitle" data-ru="Быстрые решения самых распространённых ситуаций при работе с Onyx." data-en="Quick fixes for the most common Onyx situations."></p>
+                    </div>
+
+                    <div class="alert alert-orange">
+                        <span class="alert-icon">💡</span>
+                        <div data-ru="Перед тем как искать проблему здесь, убедитесь, что выполнили <strong>все шаги</strong> из раздела <strong>Подготовка ПК</strong>." data-en="Before troubleshooting here, make sure you completed <strong>all steps</strong> from <strong>PC Preparation</strong>."></div>
+                    </div>
+
+                    <div class="error-card">
+                        <div class="error-header" onclick="toggleError(this)"><span class="error-number">01</span><span class="error-title" data-ru="Не грузится / не запускается лоадер" data-en="Loader won't load or start"></span><span class="error-arrow">▶</span></div>
+                        <div class="error-body">
+                            <div class="solution-badge" data-ru="✓ Решение" data-en="✓ Solution"></div>
+                            <ul class="solution-list">
+                                <li data-ru="Используйте <strong>VPN</strong> (Россия / СНГ) и повторите скачивание." data-en="Use a <strong>VPN</strong> (Russia / CIS) and retry the download."></li>
+                                <li data-ru="Смените DNS на Cloudflare:" data-en="Change DNS to Cloudflare:"></li>
+                            </ul>
+                            <div class="code-block">1.1.1.1<br>1.0.0.1</div>
+                            <ul class="solution-list">
+                                <li data-ru="Перезагрузите роутер, попробуйте другой браузер." data-en="Restart the router, try a different browser."></li>
+                                <li data-ru="Отключите Защитник Windows и антивирус на время скачивания." data-en="Disable Windows Defender and antivirus during download."></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="error-card">
+                        <div class="error-header" onclick="toggleError(this)"><span class="error-number">02</span><span class="error-title" data-ru="Ошибка при инжекте / чит не запускается" data-en="Injection error / cheat won't inject"></span><span class="error-arrow">▶</span></div>
+                        <div class="error-body">
+                            <div class="solution-badge" data-ru="✓ Решение" data-en="✓ Solution"></div>
+                            <ul class="solution-list">
+                                <li data-ru="Удалите <strong>Faceit</strong>, <strong>Riot Vanguard</strong> и любые сторонние античиты через <a href='https://www.softportal.com/software-6084-revo-uninstaller.html' target='_blank'>Revo Uninstaller</a>." data-en="Uninstall <strong>Faceit</strong>, <strong>Riot Vanguard</strong> and any third-party anti-cheats via <a href='https://www.softportal.com/software-6084-revo-uninstaller.html' target='_blank'>Revo Uninstaller</a>."></li>
+                                <li data-ru="Удалите антивирус (Kaspersky, Avast, ESET и т.д.) официальной утилитой производителя." data-en="Uninstall antivirus (Kaspersky, Avast, ESET, etc.) with the vendor's official utility."></li>
+                                <li data-ru="Очистите папку <strong>Temp</strong> и корзину, перезагрузите ПК." data-en="Clear the <strong>Temp</strong> folder and recycle bin, restart the PC."></li>
+                                <li data-ru="Запускайте лоадер <strong>от имени администратора</strong>." data-en="Run the loader <strong>as administrator</strong>."></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="error-card">
+                        <div class="error-header" onclick="toggleError(this)"><span class="error-number">03</span><span class="error-title" data-ru="Меню чита не открывается в игре" data-en="Cheat menu doesn't open in-game"></span><span class="error-arrow">▶</span></div>
+                        <div class="error-body">
+                            <div class="solution-badge" data-ru="✓ Решение" data-en="✓ Solution"></div>
+                            <ul class="solution-list">
+                                <li data-ru="Убедитесь, что нажимаете <kbd>Del</kbd> — это горячая клавиша меню. <kbd>End</kbd> — выгрузка чита." data-en="Make sure you press <kbd>Del</kbd> — this is the menu hotkey. <kbd>End</kbd> unloads the cheat."></li>
+                                <li data-ru="Установите <strong>«Полноэкранный в окне»</strong> в настройках игры." data-en="Set <strong>'Fullscreen Windowed'</strong> in game settings."></li>
+                                <li data-ru="Перезагрузите ПК и повторите шаги инжекта <strong>с самого начала</strong>." data-en="Restart the PC and repeat injection <strong>from the start</strong>."></li>
+                                <li data-ru="Если ничего не помогло — скачайте свежий лоадер заново." data-en="If nothing helps — re-download a fresh loader."></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="error-card">
+                        <div class="error-header" onclick="toggleError(this)"><span class="error-number">04</span><span class="error-title" data-ru="Ключ не активируется / вечная загрузка" data-en="Key won't activate / infinite loading"></span><span class="error-arrow">▶</span></div>
+                        <div class="error-body">
+                            <div class="solution-badge" data-ru="✓ Решение" data-en="✓ Solution"></div>
+                            <ul class="solution-list">
+                                <li data-ru="Синхронизируйте системное время: <strong>Параметры → Дата и время → Установить время автоматически</strong>." data-en="Sync system time: <strong>Settings → Date & Time → Set time automatically</strong>."></li>
+                                <li data-ru="Убедитесь, что при копировании ключа нет пробелов и лишних символов." data-en="Make sure the key has no spaces or extra characters when pasted."></li>
+                                <li data-ru="Перезагрузите роутер, при необходимости включите VPN." data-en="Restart the router, enable VPN if needed."></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="error-card">
+                        <div class="error-header" onclick="toggleError(this)"><span class="error-number">05</span><span class="error-title" data-ru="Ошибка драйвера / HVCI / Core Isolation" data-en="Driver error / HVCI / Core Isolation"></span><span class="error-arrow">▶</span></div>
+                        <div class="error-body">
+                            <div class="solution-badge" data-ru="✓ Решение" data-en="✓ Solution"></div>
+                            <ul class="solution-list">
+                                <li data-ru="Отключите <strong>«Изоляция ядра»</strong>: <a href='https://remontka.pro/disable-core-isolation-windows/' target='_blank'>Инструкция</a> | <a href='https://youtu.be/I9C8P_-lTn4' target='_blank'>Видео</a>." data-en="Disable <strong>'Core Isolation'</strong>: <a href='https://remontka.pro/disable-core-isolation-windows/' target='_blank'>Text</a> | <a href='https://youtu.be/I9C8P_-lTn4' target='_blank'>Video</a>."></li>
+                                <li data-ru="Windows 11: отключите <strong>VBS</strong> в реестре и BIOS." data-en="Windows 11: disable <strong>VBS</strong> in registry and BIOS."></li>
+                                <li data-ru="Обновите Windows до актуальной сборки." data-en="Update Windows to the latest build."></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="error-card">
+                        <div class="error-header" onclick="toggleError(this)"><span class="error-number">06</span><span class="error-title" data-ru="Не хватает системных компонентов" data-en="Missing system components"></span><span class="error-arrow">▶</span></div>
+                        <div class="error-body">
+                            <div class="solution-badge" data-ru="✓ Решение" data-en="✓ Solution"></div>
+                            <ul class="solution-list">
+                                <li data-ru="Установите <a href='https://go.microsoft.com/fwlink/p/?LinkId=2124703' target='_blank'>WebView2 Runtime</a>." data-en="Install <a href='https://go.microsoft.com/fwlink/p/?LinkId=2124703' target='_blank'>WebView2 Runtime</a>."></li>
+                                <li data-ru="Установите <a href='https://aka.ms/vs/17/release/vc_redist.x64.exe' target='_blank'>Visual C++ Redistributable x64</a>." data-en="Install <a href='https://aka.ms/vs/17/release/vc_redist.x64.exe' target='_blank'>Visual C++ Redistributable x64</a>."></li>
+                                <li data-ru="Установите <a href='https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe' target='_blank'>DirectX End-User Runtime</a>." data-en="Install <a href='https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe' target='_blank'>DirectX End-User Runtime</a>."></li>
+                                <li data-ru="После установки перезагрузите ПК." data-en="Restart the PC after installation."></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <span class="alert-icon">✅</span>
+                        <div data-ru="Не помогло? Перепройдите раздел <strong>Подготовка ПК</strong> с самого начала — 90% проблем решаются именно там." data-en="Still not working? Re-do the <strong>PC Preparation</strong> section from scratch — 90% of issues are resolved there."></div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
+
+    <script>
+        let currentLang = 'ru';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+            document.querySelectorAll('[data-ru]').forEach(el => {
+                const t = el.getAttribute(`data-${lang}`);
+                if (t) el.innerHTML = t;
+            });
+            const si = document.getElementById('searchInput');
+            si.placeholder = si.getAttribute(`data-placeholder-${lang}`);
+        }
+
+        function showPage(page) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById('page-' + page).classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            const navEl = document.querySelector(`.nav-link[data-page="${page}"]`);
+            if (navEl) navEl.classList.add('active');
+            const activeSpan = navEl ? navEl.querySelector('span:last-child') : null;
+            if (activeSpan) {
+                const bc = document.getElementById('breadcrumb-current');
+                bc.setAttribute('data-ru', activeSpan.getAttribute('data-ru') || activeSpan.textContent);
+                bc.setAttribute('data-en', activeSpan.getAttribute('data-en') || activeSpan.textContent);
+                bc.innerHTML = activeSpan.getAttribute(`data-${currentLang}`) || activeSpan.textContent;
+            }
+            window.scrollTo(0, 0);
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('open');
+        }
+
+        function toggleError(header) {
+            header.closest('.error-card').classList.toggle('open');
+        }
+
+        function handleSearch(q) {
+            q = q.toLowerCase().trim();
+            document.querySelectorAll('.error-card').forEach(card => {
+                if (!q) { card.classList.remove('search-hidden'); return; }
+                const t = card.querySelector('.error-title').textContent.toLowerCase();
+                const b = card.querySelector('.error-body') ? card.querySelector('.error-body').textContent.toLowerCase() : '';
+                const n = card.getAttribute('data-error');
+                if (t.includes(q) || b.includes(q) || n === q || '#'+n === q) {
+                    card.classList.remove('search-hidden');
+                    card.classList.add('open');
+                } else {
+                    card.classList.add('search-hidden');
+                }
+            });
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebarOverlay').classList.toggle('open');
+        }
+
+        setLang('ru');
+
+        // Cursor-following glow on feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+                card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+            });
+        });
+
+        // Smooth-scroll fade for section transitions is handled by CSS.
+        // Escape key closes any open sidebar on mobile.
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('sidebarOverlay').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
