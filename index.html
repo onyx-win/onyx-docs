@@ -1541,6 +1541,280 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* ============= PREP SECTIONS (detailed) ============= */
+        .prep-section {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .prep-section:last-of-type { border-bottom: none; }
+
+        .prep-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--grad);
+            color: var(--bg);
+            border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 6px 20px rgba(114, 116, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+            margin-bottom: 18px;
+        }
+
+        .prep-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            line-height: 1.15;
+        }
+
+        .prep-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            max-width: 700px;
+            line-height: 1.65;
+        }
+
+        /* Method (approach) blocks */
+        .method {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 16, 28, 0.55) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px 26px;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .method-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--indigo-light);
+            background: rgba(114, 116, 255, 0.14);
+            border: 1px solid rgba(114, 116, 255, 0.24);
+            padding: 4px 9px;
+            border-radius: 6px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .method-tag.alt {
+            color: var(--violet);
+            background: rgba(181, 123, 255, 0.1);
+            border-color: rgba(181, 123, 255, 0.24);
+        }
+
+        .method-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: -0.2px;
+        }
+
+        .method-sub {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        /* Substeps (micro-steps within a method) */
+        .substeps {
+            counter-reset: substep;
+            display: grid;
+            gap: 8px;
+            margin: 14px 0;
+        }
+
+        .substep {
+            counter-increment: substep;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 12px 14px;
+            background: rgba(0, 0, 0, 0.28);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s var(--ease);
+        }
+
+        .substep:hover {
+            background: rgba(114, 116, 255, 0.05);
+            border-color: rgba(114, 116, 255, 0.22);
+            transform: translateX(2px);
+        }
+
+        .substep::before {
+            content: counter(substep, decimal-leading-zero);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--indigo-light);
+            padding-top: 3px;
+            flex-shrink: 0;
+            min-width: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .substep-body {
+            flex: 1;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .substep-body strong { color: var(--text-white); font-weight: 600; }
+        .substep-body a { color: var(--indigo-light); }
+        .substep-body a:hover { text-decoration: underline; }
+        .substep-body code {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 1px 7px;
+            border-radius: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--indigo-light);
+        }
+        .substep-body ul {
+            margin-top: 8px;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 13.5px;
+        }
+        .substep-body ul li { margin-bottom: 2px; }
+
+        /* Figure / screenshot */
+        .figure {
+            margin: 18px 0 4px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .figure-slot {
+            aspect-ratio: 16 / 9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background:
+                linear-gradient(135deg, rgba(114, 116, 255, 0.04), rgba(0, 0, 0, 0.4)),
+                repeating-linear-gradient(45deg, rgba(114, 116, 255, 0.025) 0, rgba(114, 116, 255, 0.025) 8px, transparent 8px, transparent 16px);
+            border: 1px dashed rgba(114, 116, 255, 0.22);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 32px 24px;
+            border-radius: var(--radius);
+        }
+
+        .figure-slot-icon {
+            width: 36px;
+            height: 36px;
+            color: var(--indigo);
+            opacity: 0.55;
+        }
+
+        .figure-slot-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--indigo-light);
+            opacity: 0.7;
+        }
+
+        .figure-slot-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-width: 420px;
+            line-height: 1.5;
+        }
+
+        /* Tool link cards */
+        .tool-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: linear-gradient(90deg, rgba(114, 116, 255, 0.05), transparent 90%);
+            border: 1px solid rgba(114, 116, 255, 0.18);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.35s var(--ease);
+            margin: 10px 0 14px;
+        }
+
+        .tool-link:hover {
+            background: linear-gradient(90deg, rgba(114, 116, 255, 0.12), transparent 90%);
+            border-color: rgba(114, 116, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), 0 0 24px rgba(114, 116, 255, 0.08);
+            color: var(--text);
+        }
+
+        .tool-link-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            background: rgba(114, 116, 255, 0.14);
+            border: 1px solid rgba(114, 116, 255, 0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--indigo-light);
+            flex-shrink: 0;
+        }
+
+        .tool-link-body { flex: 1; min-width: 0; }
+
+        .tool-link-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 2px;
+            letter-spacing: -0.2px;
+        }
+
+        .tool-link-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .tool-link-out {
+            color: var(--indigo-light);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
         /* ============= PAGE NAVIGATION ============= */
         .page-nav {
             display: grid;
@@ -1911,57 +2185,283 @@
             <!-- ============ PREPARATION ============ -->
             <section class="section" id="page-preparation">
                 <div class="page-heading">
-                    <div class="page-tag" data-ru="Шаг 1" data-en="Step 1">Шаг 1</div>
+                    <div class="page-tag" data-ru="Шаг 1 · Обязательно" data-en="Step 1 · Mandatory">Шаг 1 · Обязательно</div>
                     <h1 data-ru="Подготовка <span class='accent'>ПК</span>" data-en="<span class='accent'>PC</span> preparation"></h1>
-                    <p data-ru="Обязательные шаги перед первым запуском Onyx. От их точности зависит стабильность инжекта." data-en="Mandatory steps before the first launch. Injection stability depends on doing these right."></p>
+                    <p data-ru="6 подготовительных действий. Делай последовательно, ничего не пропускай — иначе инжект не сработает." data-en="6 preparation steps. Do them in order, don't skip anything — otherwise injection won't work."></p>
                 </div>
 
                 <div class="callout danger">
-                    <span class="callout-icon">🔴</span>
-                    <div data-ru="<strong>ОБЯЗАТЕЛЬНО</strong> выполните все пункты ниже перед первым запуском." data-en="<strong>MANDATORY</strong> — complete every step below before your first launch."></div>
+                    <span class="callout-icon"><svg class="icon icon-md"><use href="#i-shield"/></svg></span>
+                    <div data-ru="<strong>Все шаги обязательны.</strong> Делай последовательно, в конце — перезагрузка. Без перезагрузки чит не запустится." data-en="<strong>Every step is mandatory.</strong> Do them in order, reboot at the end. Cheat won't launch without reboot."></div>
                 </div>
 
-                <div class="checklist">
-                    <div class="check-item">
-                        <div class="check-marker"></div>
-                        <div class="check-body">
-                            <div class="check-title" data-ru="Отключить Защитник Windows" data-en="Disable Windows Defender">Отключить Защитник Windows</div>
-                            <div class="check-desc" data-ru="Скачайте <a href='https://www.softportal.com/software-43861-defender-control.html' target='_blank'>Defender Control</a>, запустите от имени администратора, нажмите кнопку отключения — она должна стать <strong>красной</strong>." data-en="Download <a href='https://www.softportal.com/software-43861-defender-control.html' target='_blank'>Defender Control</a>, run as admin, click disable — the button should turn <strong>red</strong>."></div>
+                <!-- ===== Prep 1: Defender ===== -->
+                <div class="prep-section">
+                    <div class="prep-num">1</div>
+                    <div class="prep-title" data-ru="Отключить Защитник Windows" data-en="Disable Windows Defender">Отключить Защитник Windows</div>
+                    <div class="prep-desc" data-ru="Встроенный антивирус Windows блокирует загрузку драйвера. Отключить надо полностью — не в «паузу», а совсем." data-en="Windows' built-in antivirus blocks the driver from loading. Full disable is required — not just paused."></div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag" data-ru="Способ 1" data-en="Method 1">Способ 1</span>
+                            <span class="method-title" data-ru="Через настройки Windows" data-en="Via Windows settings">Через настройки Windows</span>
+                        </div>
+                        <div class="method-sub" data-ru="Работает на Windows 10 и 11. Простой путь." data-en="Works on Windows 10 and 11. The easy path.">Работает на Windows 10 и 11. Простой путь.</div>
+
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="Нажми <kbd>Win</kbd> или кликни на <strong>Пуск</strong>" data-en="Press <kbd>Win</kbd> or click <strong>Start</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Начни писать <strong>«Безопасность Windows»</strong> → нажми <kbd>Enter</kbd>" data-en="Start typing <strong>'Windows Security'</strong> → press <kbd>Enter</kbd>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="В открывшемся окне слева выбери <strong>«Защита от вирусов и угроз»</strong>" data-en="In the window, select <strong>'Virus & threat protection'</strong> on the left"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Найди раздел <strong>«Параметры защиты от вирусов и других угроз»</strong> → кликни <strong>«Управление настройками»</strong>" data-en="Find <strong>'Virus & threat protection settings'</strong> → click <strong>'Manage settings'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Отключи <strong>ВСЕ 4 переключателя</strong>:<ul><li>Защита в реальном времени</li><li>Облачная защита</li><li>Автоматическая отправка образцов</li><li>Защита от подделки</li></ul>" data-en="Toggle <strong>OFF all 4 switches</strong>:<ul><li>Real-time protection</li><li>Cloud-delivered protection</li><li>Automatic sample submission</li><li>Tamper Protection</li></ul>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="На каждый переключатель Windows покажет UAC — нажми <strong>«Да»</strong>" data-en="Windows will show a UAC prompt for each — click <strong>'Yes'</strong>"></div></div>
+                        </div>
+
+                        <div class="figure">
+                            <div class="figure-slot">
+                                <svg class="icon figure-slot-icon"><use href="#i-shield"/></svg>
+                                <div class="figure-slot-label" data-ru="Скриншот" data-en="Screenshot">Скриншот</div>
+                                <div class="figure-slot-desc" data-ru="Финальный вид: все 4 переключателя в «Параметры защиты» отключены (серые). Сохрани файл prep-defender-off.png в репо чтобы отобразить." data-en="Final view: all 4 toggles in Windows Security are off. Save prep-defender-off.png in the repo to show here."></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-marker"></div>
-                        <div class="check-body">
-                            <div class="check-title" data-ru="Удалить сторонние антивирусы" data-en="Uninstall third-party antivirus">Удалить сторонние антивирусы</div>
-                            <div class="check-desc" data-ru="Kaspersky, Avast, Avira, ESET и подобные — только официальными утилитами удаления от вендора." data-en="Kaspersky, Avast, Avira, ESET etc. — only via the vendor's official uninstall utility."></div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag alt" data-ru="Способ 2" data-en="Method 2">Способ 2</span>
+                            <span class="method-title" data-ru="Утилита Defender Control" data-en="Defender Control tool">Утилита Defender Control</span>
+                        </div>
+                        <div class="method-sub" data-ru="Если Способ 1 не сработал или Defender включается сам обратно после перезагрузки." data-en="If Method 1 didn't work or Defender re-enables itself after reboot.">Если Способ 1 не сработал или Defender включается сам обратно после перезагрузки.</div>
+
+                        <a class="tool-link" href="https://www.softportal.com/software-43861-defender-control.html" target="_blank">
+                            <div class="tool-link-icon"><svg class="icon icon-md"><use href="#i-shield"/></svg></div>
+                            <div class="tool-link-body">
+                                <div class="tool-link-name">Defender Control</div>
+                                <div class="tool-link-desc" data-ru="Утилита от Sordum — одна кнопка, полное отключение" data-en="Sordum's tool — one button, full disable">Утилита от Sordum — одна кнопка, полное отключение</div>
+                            </div>
+                            <div class="tool-link-out">↗</div>
+                        </a>
+
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="Скачай архив по ссылке выше и распакуй куда-нибудь" data-en="Download the archive from the link above and unpack it"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Клик правой кнопкой по <code>dControl.exe</code> → <strong>«Запуск от имени администратора»</strong>" data-en="Right-click <code>dControl.exe</code> → <strong>'Run as administrator'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="В окне утилиты нажми большую кнопку <strong>«Disable Windows Defender»</strong>" data-en="In the tool window, click the big <strong>'Disable Windows Defender'</strong> button"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Кнопка должна стать <strong style='color: var(--red)'>красной</strong> — это значит Defender отключён" data-en="Button should turn <strong style='color: var(--red)'>red</strong> — Defender is now disabled"></div></div>
+                        </div>
+
+                        <div class="figure">
+                            <div class="figure-slot">
+                                <svg class="icon figure-slot-icon"><use href="#i-shield"/></svg>
+                                <div class="figure-slot-label" data-ru="Скриншот" data-en="Screenshot">Скриншот</div>
+                                <div class="figure-slot-desc" data-ru="Красная кнопка «Disable Windows Defender» в интерфейсе DControl." data-en="Red 'Disable Windows Defender' button in DControl's UI."></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-marker"></div>
-                        <div class="check-body">
-                            <div class="check-title" data-ru="Удалить сторонние античиты" data-en="Uninstall third-party anti-cheats">Удалить сторонние античиты</div>
-                            <div class="check-desc" data-ru="Faceit AC, Riot Vanguard и все аналоги — через <a href='https://www.softportal.com/software-6084-revo-uninstaller.html' target='_blank'>Revo Uninstaller</a> для полной очистки." data-en="Faceit AC, Riot Vanguard and any analogs — via <a href='https://www.softportal.com/software-6084-revo-uninstaller.html' target='_blank'>Revo Uninstaller</a> for a full clean."></div>
+                </div>
+
+                <!-- ===== Prep 2: Antivirus ===== -->
+                <div class="prep-section">
+                    <div class="prep-num">2</div>
+                    <div class="prep-title" data-ru="Удалить сторонние антивирусы" data-en="Remove third-party antivirus">Удалить сторонние антивирусы</div>
+                    <div class="prep-desc" data-ru="Kaspersky, Avast, Avira, ESET, Norton, Dr.Web и подобные — блокируют инжект жёстче Defender. Удалять надо полностью, не просто «выключить»." data-en="Kaspersky, Avast, Avira, ESET, Norton, Dr.Web etc. block injection harder than Defender. Remove them fully — 'disabling' isn't enough."></div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag" data-ru="Сначала" data-en="First">Сначала</span>
+                            <span class="method-title" data-ru="Проверь что установлено" data-en="Check what's installed">Проверь что установлено</span>
+                        </div>
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="Нажми <kbd>Win</kbd> + <kbd>R</kbd> → введи <code>appwiz.cpl</code> → <kbd>Enter</kbd>" data-en="Press <kbd>Win</kbd> + <kbd>R</kbd> → type <code>appwiz.cpl</code> → <kbd>Enter</kbd>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Откроется <strong>«Программы и компоненты»</strong>. Пролистай список и ищи любой антивирус" data-en="<strong>'Programs and Features'</strong> opens. Scroll and look for any antivirus"></div></div>
+                        </div>
+
+                        <div class="figure">
+                            <div class="figure-slot">
+                                <svg class="icon figure-slot-icon"><use href="#i-wrench"/></svg>
+                                <div class="figure-slot-label" data-ru="Скриншот" data-en="Screenshot">Скриншот</div>
+                                <div class="figure-slot-desc" data-ru="Список программ с выделенным пунктом Kaspersky/Avast/ESET." data-en="Programs list with Kaspersky/Avast/ESET highlighted."></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-marker"></div>
-                        <div class="check-body">
-                            <div class="check-title" data-ru="Очистить папку Temp" data-en="Clear the Temp folder">Очистить папку Temp</div>
-                            <div class="check-desc" data-ru="<a href='https://altarena.ru/kak-ochistit-papku-temp-v-windows-10-avtomaticheski/' target='_blank'>Инструкция по очистке</a>." data-en="<a href='https://altarena.ru/kak-ochistit-papku-temp-v-windows-10-avtomaticheski/' target='_blank'>Cleanup guide</a>."></div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag" data-ru="Способ 1" data-en="Method 1">Способ 1</span>
+                            <span class="method-title" data-ru="Официальные утилиты удаления" data-en="Official removal utilities">Официальные утилиты удаления</span>
+                        </div>
+                        <div class="method-sub" data-ru="Обычное удаление часто оставляет драйверы. Используй утилиты от вендора:" data-en="Regular uninstall often leaves drivers behind. Use vendor's tool:">Обычное удаление часто оставляет драйверы. Используй утилиты от вендора:</div>
+
+                        <a class="tool-link" href="https://support.kaspersky.ru/common/uninstall/1464" target="_blank">
+                            <div class="tool-link-icon"><svg class="icon icon-md"><use href="#i-wrench"/></svg></div>
+                            <div class="tool-link-body">
+                                <div class="tool-link-name">Kaspersky Removal Tool</div>
+                                <div class="tool-link-desc" data-ru="Полное удаление всех продуктов Касперского" data-en="Full removal of any Kaspersky product">Полное удаление всех продуктов Касперского</div>
+                            </div>
+                            <div class="tool-link-out">↗</div>
+                        </a>
+
+                        <a class="tool-link" href="https://www.avast.com/uninstall-utility" target="_blank">
+                            <div class="tool-link-icon"><svg class="icon icon-md"><use href="#i-wrench"/></svg></div>
+                            <div class="tool-link-body">
+                                <div class="tool-link-name">Avast Clear</div>
+                                <div class="tool-link-desc" data-ru="Удаляет Avast и AVG полностью" data-en="Fully removes Avast and AVG">Удаляет Avast и AVG полностью</div>
+                            </div>
+                            <div class="tool-link-out">↗</div>
+                        </a>
+
+                        <a class="tool-link" href="https://support.eset.com/en/kb2289" target="_blank">
+                            <div class="tool-link-icon"><svg class="icon icon-md"><use href="#i-wrench"/></svg></div>
+                            <div class="tool-link-body">
+                                <div class="tool-link-name">ESET Uninstaller</div>
+                                <div class="tool-link-desc" data-ru="Для ESET NOD32 и Smart Security" data-en="For ESET NOD32 and Smart Security">Для ESET NOD32 и Smart Security</div>
+                            </div>
+                            <div class="tool-link-out">↗</div>
+                        </a>
+                    </div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag alt" data-ru="Способ 2" data-en="Method 2">Способ 2</span>
+                            <span class="method-title" data-ru="Универсальный — Revo Uninstaller" data-en="Universal — Revo Uninstaller">Универсальный — Revo Uninstaller</span>
+                        </div>
+                        <div class="method-sub" data-ru="Если утилиты производителя нет или лень искать. Удаляет + чистит следы в реестре." data-en="If vendor tool isn't available or you don't want to search. Uninstalls + cleans registry traces.">Если утилиты производителя нет или лень искать. Удаляет + чистит следы в реестре.</div>
+
+                        <a class="tool-link" href="https://www.softportal.com/software-6084-revo-uninstaller.html" target="_blank">
+                            <div class="tool-link-icon"><svg class="icon icon-md"><use href="#i-wrench"/></svg></div>
+                            <div class="tool-link-body">
+                                <div class="tool-link-name">Revo Uninstaller</div>
+                                <div class="tool-link-desc" data-ru="Удаляет программу + следы в реестре и файлах" data-en="Removes program + registry and file traces">Удаляет программу + следы в реестре и файлах</div>
+                            </div>
+                            <div class="tool-link-out">↗</div>
+                        </a>
+
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="Установи Revo и запусти" data-en="Install and launch Revo"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="В списке найди антивирус → двойной клик" data-en="Find the antivirus in the list → double-click"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Выбери режим <strong>«Advanced»</strong> (продвинутый) — Revo будет искать следы" data-en="Choose <strong>'Advanced'</strong> mode — Revo will hunt for traces"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="После удаления Revo покажет «остатки» → <strong>«Select all»</strong> → <strong>«Delete»</strong>" data-en="After uninstall Revo shows 'leftovers' → <strong>'Select all'</strong> → <strong>'Delete'</strong>"></div></div>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-marker"></div>
-                        <div class="check-body">
-                            <div class="check-title" data-ru="Перезагрузить ПК" data-en="Reboot the PC">Перезагрузить ПК</div>
-                            <div class="check-desc" data-ru="После всех действий обязательна полная перезагрузка." data-en="A full reboot is required after all steps above."></div>
+
+                    <div class="callout warn">
+                        <span class="callout-icon"><svg class="icon icon-md"><use href="#i-refresh"/></svg></span>
+                        <div data-ru="<strong>Обязательна перезагрузка ПК</strong> после удаления антивируса. Пока не перезагрузишься — драйверы продолжают жить в памяти." data-en="<strong>Reboot is required</strong> after removing an antivirus. Drivers stay in memory until reboot."></div>
+                    </div>
+                </div>
+
+                <!-- ===== Prep 3: Anti-cheats ===== -->
+                <div class="prep-section">
+                    <div class="prep-num">3</div>
+                    <div class="prep-title" data-ru="Удалить сторонние античиты" data-en="Remove third-party anti-cheats">Удалить сторонние античиты</div>
+                    <div class="prep-desc" data-ru="Faceit AC и Riot Vanguard работают на уровне ядра Windows и мешают нашему драйверу. Удалить обязательно." data-en="Faceit AC and Riot Vanguard run at kernel level and block our driver. Must be removed."></div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag">Faceit AC</span>
+                            <span class="method-title" data-ru="Античит для CS/CS2" data-en="Anti-cheat for CS/CS2">Античит для CS/CS2</span>
                         </div>
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="<kbd>Win</kbd> + <kbd>R</kbd> → <code>appwiz.cpl</code> → <kbd>Enter</kbd>" data-en="<kbd>Win</kbd> + <kbd>R</kbd> → <code>appwiz.cpl</code> → <kbd>Enter</kbd>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Найди <strong>Faceit AC</strong> → ПКМ → <strong>«Удалить»</strong>" data-en="Find <strong>Faceit AC</strong> → right-click → <strong>'Uninstall'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Для полной чистки прогони <strong>Revo Uninstaller</strong> после" data-en="For a full clean, run <strong>Revo Uninstaller</strong> afterwards"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag">Riot Vanguard</span>
+                            <span class="method-title" data-ru="Античит для Valorant / LoL" data-en="Anti-cheat for Valorant / LoL">Античит для Valorant / LoL</span>
+                        </div>
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="Открой <strong>«Программы и компоненты»</strong>" data-en="Open <strong>'Programs and Features'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Удали <strong>Riot Vanguard</strong> (иногда именуется просто «Vanguard»)" data-en="Uninstall <strong>Riot Vanguard</strong> (sometimes just 'Vanguard')"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="<strong>Обязательно перезагрузи ПК</strong> — Vanguard стартует с ОС и живёт в памяти до ребута" data-en="<strong>Reboot the PC</strong> — Vanguard boots with the OS and stays until reboot"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="callout info">
+                        <span class="callout-icon"><svg class="icon icon-md"><use href="#i-book"/></svg></span>
+                        <div data-ru="Не помнишь установлены ли античиты? <kbd>Win</kbd> + <kbd>R</kbd> → <code>services.msc</code> → если в списке служб есть <strong>vgc</strong>, <strong>vgk</strong> или <strong>Faceit</strong> — они установлены." data-en="Not sure if anti-cheats are installed? <kbd>Win</kbd> + <kbd>R</kbd> → <code>services.msc</code> → if you see <strong>vgc</strong>, <strong>vgk</strong> or <strong>Faceit</strong> in the service list — they are."></div>
+                    </div>
+                </div>
+
+                <!-- ===== Prep 4: Temp ===== -->
+                <div class="prep-section">
+                    <div class="prep-num">4</div>
+                    <div class="prep-title" data-ru="Очистить папку Temp" data-en="Clear the Temp folder">Очистить папку Temp</div>
+                    <div class="prep-desc" data-ru="В Temp остаются временные файлы от старых лоадеров и античитов. Их надо снести перед новым инжектом." data-en="Temp keeps leftover files from old loaders and anti-cheats. Wipe before a new injection."></div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag" data-ru="Основная" data-en="Main">Основная</span>
+                            <span class="method-title" data-ru="Пользовательская Temp" data-en="User Temp">Пользовательская Temp</span>
+                        </div>
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="Нажми <kbd>Win</kbd> + <kbd>R</kbd>" data-en="Press <kbd>Win</kbd> + <kbd>R</kbd>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="В окошке введи <code>%temp%</code> → <kbd>Enter</kbd>" data-en="Type <code>%temp%</code> → <kbd>Enter</kbd>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="В открывшейся папке нажми <kbd>Ctrl</kbd> + <kbd>A</kbd> (выделить всё)" data-en="In the folder press <kbd>Ctrl</kbd> + <kbd>A</kbd> (select all)"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Нажми <kbd>Shift</kbd> + <kbd>Delete</kbd> (удаление мимо корзины) → подтверди <strong>«Да»</strong>" data-en="Press <kbd>Shift</kbd> + <kbd>Delete</kbd> (permanent delete) → confirm <strong>'Yes'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Если Windows пишет «Файл используется» — жми <strong>«Пропустить»</strong>. Это нормально." data-en="If Windows says 'File in use' — click <strong>'Skip'</strong>. That's normal."></div></div>
+                        </div>
+
+                        <div class="figure">
+                            <div class="figure-slot">
+                                <svg class="icon figure-slot-icon"><use href="#i-refresh"/></svg>
+                                <div class="figure-slot-label" data-ru="Скриншот" data-en="Screenshot">Скриншот</div>
+                                <div class="figure-slot-desc" data-ru="Окно «Выполнить» с введённым %temp% + открытая папка Temp." data-en="Run dialog with %temp% typed + the open Temp folder."></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag alt" data-ru="Дополнительно" data-en="Extra">Дополнительно</span>
+                            <span class="method-title" data-ru="Системная Temp и Prefetch" data-en="System Temp and Prefetch">Системная Temp и Prefetch</span>
+                        </div>
+                        <div class="method-sub" data-ru="Для полной очистки повтори с этими именами:" data-en="For a full wipe repeat with these paths:">Для полной очистки повтори с этими именами:</div>
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="<kbd>Win</kbd> + <kbd>R</kbd> → <code>temp</code> → <kbd>Enter</kbd> → выделить всё, удалить" data-en="<kbd>Win</kbd> + <kbd>R</kbd> → <code>temp</code> → <kbd>Enter</kbd> → select all, delete"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="<kbd>Win</kbd> + <kbd>R</kbd> → <code>prefetch</code> → <kbd>Enter</kbd> → выделить всё, удалить" data-en="<kbd>Win</kbd> + <kbd>R</kbd> → <code>prefetch</code> → <kbd>Enter</kbd> → select all, delete"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== Prep 5: Time sync ===== -->
+                <div class="prep-section">
+                    <div class="prep-num">5</div>
+                    <div class="prep-title" data-ru="Синхронизировать время" data-en="Sync the clock">Синхронизировать время</div>
+                    <div class="prep-desc" data-ru="Ключ активации проверяется с точностью до секунд. Если часы «отстали» или «спешат» — ключ не примется." data-en="License key is checked down to the second. If your clock is off — the key won't activate."></div>
+
+                    <div class="method">
+                        <div class="method-header">
+                            <span class="method-tag" data-ru="Настройки" data-en="Settings">Настройки</span>
+                            <span class="method-title" data-ru="Автосинхронизация" data-en="Auto-sync">Автосинхронизация</span>
+                        </div>
+                        <div class="substeps">
+                            <div class="substep"><div class="substep-body" data-ru="ПКМ по часам в правом нижнем углу → <strong>«Настройка даты и времени»</strong>" data-en="Right-click the clock in the bottom-right → <strong>'Adjust date/time'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Включи <strong>«Установить время автоматически»</strong>" data-en="Turn on <strong>'Set time automatically'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Включи <strong>«Автоматически устанавливать часовой пояс»</strong>" data-en="Turn on <strong>'Set time zone automatically'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Пролистай ниже → нажми кнопку <strong>«Синхронизировать сейчас»</strong>" data-en="Scroll down → click <strong>'Sync now'</strong>"></div></div>
+                            <div class="substep"><div class="substep-body" data-ru="Проверь строку <strong>«Последняя успешная синхронизация»</strong> — должна быть свежая дата" data-en="Check <strong>'Last successful sync'</strong> — should be a fresh date"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== Prep 6: Reboot ===== -->
+                <div class="prep-section">
+                    <div class="prep-num">6</div>
+                    <div class="prep-title" data-ru="Перезагрузить ПК" data-en="Reboot the PC">Перезагрузить ПК</div>
+                    <div class="prep-desc" data-ru="После всех шагов выше — обязательная полная перезагрузка. Не «Завершение работы → включить», а именно <strong>«Перезагрузка»</strong>." data-en="After all steps above — a full reboot is required. Not 'Shut down → power on' — specifically <strong>'Restart'</strong>."></div>
+
+                    <div class="callout warn">
+                        <span class="callout-icon"><svg class="icon icon-md"><use href="#i-refresh"/></svg></span>
+                        <div data-ru="<strong>Важно:</strong> Windows с включённой «Быстрой загрузкой» при выключении не убивает драйверы полностью. Только <strong>Перезагрузка</strong> сбрасывает всё окружение." data-en="<strong>Important:</strong> Windows with 'Fast Startup' doesn't fully kill drivers on shutdown. Only <strong>Restart</strong> fully resets the environment."></div>
                     </div>
                 </div>
 
                 <div class="callout success">
-                    <span class="callout-icon">✅</span>
-                    <div data-ru="Готово. Теперь выберите игру и переходите к её инструкции." data-en="Done. Now pick your game and follow its guide."></div>
+                    <span class="callout-icon"><svg class="icon icon-md"><use href="#i-shield"/></svg></span>
+                    <div data-ru="<strong>Готово.</strong> ПК подготовлен. Теперь переходи к запуску нужной игры в разделе <strong>«Игры»</strong> вверху." data-en="<strong>Done.</strong> PC is ready. Now go to <strong>Games</strong> in the top nav and pick your game."></div>
                 </div>
             </section>
 
