@@ -1370,6 +1370,122 @@
             from { opacity: 0; transform: translateY(14px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ============= PAGE NAVIGATION ============= */
+        .page-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 56px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .pn-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 22px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 16, 28, 0.55) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.4s var(--ease);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pn-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 30%, rgba(114, 116, 255, 0.05) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.9s var(--ease);
+            pointer-events: none;
+        }
+
+        .pn-item:hover::before { transform: translateX(100%); }
+
+        .pn-item:hover {
+            border-color: rgba(114, 116, 255, 0.35);
+            background: linear-gradient(135deg, var(--bg-card-hover) 0%, rgba(23, 23, 42, 0.6) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 32px rgba(114, 116, 255, 0.1);
+        }
+
+        .pn-item.pn-next {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .pn-item.pn-empty {
+            background: transparent;
+            border: 1px dashed rgba(255, 255, 255, 0.04);
+            pointer-events: none;
+            opacity: 0.35;
+            box-shadow: none;
+        }
+
+        .pn-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(114, 116, 255, 0.1);
+            border: 1px solid rgba(114, 116, 255, 0.2);
+            color: var(--indigo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: all 0.4s var(--ease);
+        }
+
+        .pn-item.pn-prev:hover .pn-arrow {
+            background: var(--grad);
+            color: var(--bg);
+            transform: translateX(-4px);
+            box-shadow: 0 6px 20px rgba(114, 116, 255, 0.4);
+        }
+
+        .pn-item.pn-next:hover .pn-arrow {
+            background: var(--grad);
+            color: var(--bg);
+            transform: translateX(4px);
+            box-shadow: 0 6px 20px rgba(114, 116, 255, 0.4);
+        }
+
+        .pn-content { flex: 1; min-width: 0; }
+
+        .pn-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .pn-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 640px) {
+            .page-nav { grid-template-columns: 1fr; }
+            .pn-item.pn-empty { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -1866,6 +1982,8 @@
                 </div>
             </section>
 
+            <nav class="page-nav" id="pageNav"></nav>
+
         </div>
     </main>
 
@@ -1888,6 +2006,7 @@
 
     <script>
         let currentLang = 'ru';
+        let currentPage = 'welcome';
 
         const PAGES = [
             { id: 'welcome', icon: '📖', ru: 'Введение', en: 'Introduction', cat: 'GENERAL' },
@@ -1898,6 +2017,41 @@
             { id: 'launch-unturned', icon: '🧟', ru: 'Unturned External', en: 'Unturned External', cat: 'GAMES' },
             { id: 'troubleshooting', icon: '🛠️', ru: 'Частые проблемы', en: 'Common issues', cat: 'HELP' },
         ];
+
+        const PAGE_ORDER = ['welcome', 'preparation', 'launch-rust-pro', 'launch-rust-lite', 'launch-apex', 'launch-unturned', 'troubleshooting'];
+
+        const NAV_LABELS = {
+            ru: { prev: 'Назад', next: 'Далее' },
+            en: { prev: 'Previous', next: 'Next' }
+        };
+
+        function updatePageNav() {
+            const idx = PAGE_ORDER.indexOf(currentPage);
+            const prev = idx > 0 ? PAGES.find(p => p.id === PAGE_ORDER[idx - 1]) : null;
+            const next = idx >= 0 && idx < PAGE_ORDER.length - 1 ? PAGES.find(p => p.id === PAGE_ORDER[idx + 1]) : null;
+            const L = NAV_LABELS[currentLang];
+            const nav = document.getElementById('pageNav');
+            if (!nav) return;
+            const prevHtml = prev
+                ? `<a class="pn-item pn-prev" onclick="showPage('${prev.id}')">
+                       <span class="pn-arrow">←</span>
+                       <span class="pn-content">
+                           <span class="pn-label">${L.prev}</span>
+                           <span class="pn-name">${prev[currentLang]}</span>
+                       </span>
+                   </a>`
+                : `<div class="pn-item pn-empty"></div>`;
+            const nextHtml = next
+                ? `<a class="pn-item pn-next" onclick="showPage('${next.id}')">
+                       <span class="pn-arrow">→</span>
+                       <span class="pn-content">
+                           <span class="pn-label">${L.next}</span>
+                           <span class="pn-name">${next[currentLang]}</span>
+                       </span>
+                   </a>`
+                : `<div class="pn-item pn-empty"></div>`;
+            nav.innerHTML = prevHtml + nextHtml;
+        }
 
         function setLang(lang) {
             currentLang = lang;
@@ -1910,9 +2064,11 @@
             const pi = document.getElementById('paletteInput');
             pi.placeholder = pi.getAttribute(`data-placeholder-${lang}`);
             renderPalette('');
+            updatePageNav();
         }
 
         function showPage(page) {
+            currentPage = page;
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             const target = document.getElementById('page-' + page);
             if (target) target.classList.add('active');
@@ -1928,6 +2084,7 @@
             dropBtn.classList.toggle('has-active', gamePages.includes(page));
 
             gd.classList.remove('open');
+            updatePageNav();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
