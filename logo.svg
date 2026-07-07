@@ -1,10 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="onyxG" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#8688FF"/>
-      <stop offset="1" stop-color="#5C5EEB"/>
+    <linearGradient id="onyxOuter" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9698FF"/>
+      <stop offset="1" stop-color="#4E51E0"/>
+    </linearGradient>
+    <linearGradient id="onyxInner" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0a12"/>
+      <stop offset="1" stop-color="#141428"/>
     </linearGradient>
   </defs>
-  <path d="M50 4 L90 27 V73 L50 96 L10 73 V27 Z" fill="url(#onyxG)"/>
-  <path d="M38 32 L72 32 L64 46 L48 46 L46 50 L54 50 L58 58 L34 58 Z" fill="#0a0a12"/>
+  <path d="M32 4 L56 18 V46 L32 60 L8 46 V18 Z" fill="url(#onyxOuter)"/>
+  <path d="M32 16 L46 24 V40 L32 48 L18 40 V24 Z" fill="url(#onyxInner)"/>
+  <path d="M32 22 L40 27 V37 L32 42 L24 37 V27 Z" fill="url(#onyxOuter)" opacity="0.9"/>
 </svg>
