@@ -1,112 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Segoe UI, system-ui, sans-serif">
-  <!-- Desktop background -->
-  <rect width="800" height="450" fill="#0d0d18"/>
-  
-  <!-- Subtle desktop gradient overlay -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="Segoe UI, system-ui, sans-serif">
   <defs>
     <radialGradient id="deskGlow" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#1a1a2e" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#0d0d18" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#1a1a2e" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1a1a2e" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="btnRed" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ff5a68"/>
-      <stop offset="100%" stop-color="#d63344"/>
+    <linearGradient id="redBtn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e04350"/>
+      <stop offset="100%" stop-color="#b02830"/>
     </linearGradient>
-    <linearGradient id="titleBar" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#26264a"/>
-      <stop offset="100%" stop-color="#1c1c2e"/>
-    </linearGradient>
+    <filter id="winShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="4" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.5"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect width="800" height="422" fill="url(#deskGlow)"/>
-  
-  <!-- Window shadow underlay -->
-  <rect x="182" y="88" width="436" height="266" rx="10" fill="#000000" opacity="0.5"/>
-  <rect x="184" y="86" width="434" height="264" rx="9" fill="#000000" opacity="0.35"/>
-  
-  <!-- Main utility window -->
-  <rect x="185" y="85" width="430" height="260" rx="8" fill="#1c1c2e" stroke="#2a2a48" stroke-width="1"/>
-  
-  <!-- Title bar -->
-  <path d="M 185 93 Q 185 85 193 85 L 607 85 Q 615 85 615 93 L 615 118 L 185 118 Z" fill="url(#titleBar)"/>
-  <line x1="185" y1="118" x2="615" y2="118" stroke="#2a2a48" stroke-width="1"/>
-  
-  <!-- Title bar icon (shield) -->
-  <path d="M 200 96 L 200 104 Q 200 109 205 111 Q 210 109 210 104 L 210 96 Z" fill="#7274FF" opacity="0.9"/>
-  <text x="218" y="106" font-size="12" fill="#eaeaf2" font-weight="500">Defender Control v2.1</text>
-  
-  <!-- Window controls -->
-  <text x="555" y="106" font-size="14" fill="#9c9cb4">−</text>
-  <rect x="571" y="98" width="9" height="9" fill="none" stroke="#9c9cb4" stroke-width="1"/>
-  <text x="595" y="106" font-size="12" fill="#9c9cb4">✕</text>
-  
-  <!-- Sordum wordmark -->
-  <rect x="201" y="132" width="20" height="20" rx="4" fill="#7274FF"/>
-  <text x="207" y="146" font-size="12" fill="#ffffff" font-weight="700">S</text>
-  <text x="227" y="146" font-size="12" fill="#eaeaf2" font-weight="600">Sordum</text>
-  
-  <!-- Version tag right side -->
-  <text x="590" y="146" font-size="10" fill="#5c5c74" text-anchor="end">v2.1</text>
-  
-  <!-- Divider -->
-  <line x1="201" y1="162" x2="599" y2="162" stroke="#2a2a48" stroke-width="1"/>
-  
-  <!-- Status line -->
-  <text x="210" y="184" font-size="12" fill="#eaeaf2">Защитник Windows:</text>
-  <text x="335" y="184" font-size="12" fill="#ff4757" font-weight="700">ОТКЛЮЧЕН</text>
-  
-  <!-- Sub-status -->
-  <circle cx="215" cy="201" r="3" fill="#ff4757"/>
-  <text x="225" y="205" font-size="10" fill="#9c9cb4">Служба остановлена</text>
-  
-  <!-- Large red button shadow -->
-  <rect x="252" y="222" width="296" height="58" rx="8" fill="#000000" opacity="0.4"/>
-  
-  <!-- Large red button (pressed state) -->
-  <rect x="250" y="220" width="300" height="60" rx="8" fill="url(#btnRed)" stroke="#a82838" stroke-width="1"/>
-  <rect x="250" y="220" width="300" height="28" rx="8" fill="#ffffff" opacity="0.06"/>
-  
-  <!-- Shield icon in button -->
-  <path d="M 285 240 L 285 254 Q 285 261 293 264 Q 301 261 301 254 L 301 240 L 293 237 Z" fill="#ffffff" opacity="0.95"/>
-  <path d="M 289 249 L 292 252 L 297 246" stroke="#d63344" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="286" y1="242" x2="300" y2="257" stroke="#d63344" stroke-width="2" stroke-linecap="round"/>
-  
-  <!-- Button text -->
-  <text x="410" y="256" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">Disable Windows Defender</text>
-  
-  <!-- Menu hint -->
-  <text x="400" y="303" font-size="10" fill="#5c5c74" text-anchor="middle">Menu → Options → Advanced</text>
-  
-  <!-- Bottom status bar of window -->
-  <line x1="185" y1="320" x2="615" y2="320" stroke="#2a2a48" stroke-width="1"/>
-  <circle cx="200" cy="332" r="3" fill="#ff4757"/>
-  <text x="209" y="336" font-size="9" fill="#5c5c74">Real-Time Protection: OFF</text>
-  <text x="599" y="336" font-size="9" fill="#5c5c74" text-anchor="end">www.sordum.org</text>
-  
+
+  <!-- Desktop background -->
+  <rect width="800" height="480" fill="#0d0d16"/>
+  <rect width="800" height="480" fill="url(#deskGlow)"/>
+
   <!-- Taskbar -->
-  <rect x="0" y="422" width="800" height="28" fill="#16162a"/>
-  <line x1="0" y1="422" x2="800" y2="422" stroke="#2a2a48" stroke-width="1"/>
-  
-  <!-- Windows logo (4 squares) -->
-  <rect x="18" y="431" width="4" height="4" fill="#7274FF"/>
-  <rect x="23" y="431" width="4" height="4" fill="#7274FF"/>
-  <rect x="18" y="436" width="4" height="4" fill="#7274FF"/>
-  <rect x="23" y="436" width="4" height="4" fill="#7274FF"/>
-  
+  <rect x="0" y="444" width="800" height="36" fill="#1c1c1e"/>
+  <line x1="0" y1="444" x2="800" y2="444" stroke="#2e2e32" stroke-width="1"/>
+  <!-- Windows logo (4 small purple squares) -->
+  <rect x="18" y="452" width="4" height="4" fill="#7274FF"/>
+  <rect x="24" y="452" width="4" height="4" fill="#7274FF"/>
+  <rect x="18" y="458" width="4" height="4" fill="#7274FF"/>
+  <rect x="24" y="458" width="4" height="4" fill="#7274FF"/>
   <!-- Search icon -->
-  <circle cx="48" cy="436" r="4" fill="none" stroke="#9c9cb4" stroke-width="1.2"/>
-  <line x1="51" y1="439" x2="53" y2="441" stroke="#9c9cb4" stroke-width="1.2"/>
-  
-  <!-- Taskbar app icons -->
-  <rect x="66" y="430" width="12" height="12" rx="2" fill="#22223a" stroke="#2a2a48" stroke-width="0.5"/>
-  <rect x="84" y="430" width="12" height="12" rx="2" fill="#22223a" stroke="#2a2a48" stroke-width="0.5"/>
-  <rect x="102" y="430" width="12" height="12" rx="2" fill="#7274FF" opacity="0.3" stroke="#7274FF" stroke-width="0.5"/>
-  
-  <!-- System tray / clock -->
-  <text x="760" y="433" font-size="9" fill="#eaeaf2" text-anchor="end">14:32</text>
-  <text x="760" y="443" font-size="8" fill="#9c9cb4" text-anchor="end">07.07.2026</text>
-  
-  <!-- Tray icons -->
-  <path d="M 700 434 L 704 438 L 708 434 Z" fill="#9c9cb4"/>
-  <rect x="715" y="432" width="8" height="6" fill="none" stroke="#9c9cb4" stroke-width="0.8"/>
-  <line x1="717" y1="432" x2="717" y2="438" stroke="#9c9cb4" stroke-width="0.8"/>
+  <circle cx="52" cy="460" r="4" fill="none" stroke="#a8a8ad" stroke-width="1.2"/>
+  <line x1="55" y1="463" x2="58" y2="466" stroke="#a8a8ad" stroke-width="1.2"/>
+  <!-- 3 app squares -->
+  <rect x="76" y="454" width="12" height="12" rx="2" fill="none" stroke="#a8a8ad" stroke-width="1"/>
+  <rect x="96" y="454" width="12" height="12" rx="2" fill="#7274FF" fill-opacity="0.25" stroke="#7274FF" stroke-width="1"/>
+  <rect x="116" y="454" width="12" height="12" rx="2" fill="none" stroke="#a8a8ad" stroke-width="1"/>
+  <line x1="98" y1="468" x2="106" y2="468" stroke="#7274FF" stroke-width="1.4"/>
+  <!-- System tray icons -->
+  <path d="M680,458 L686,464 L680,464 Z" fill="#a8a8ad"/>
+  <path d="M698,456 L700,456 L700,464 L698,464 L695,466 L695,454 Z" fill="#a8a8ad"/>
+  <path d="M702,458 Q704,460 702,462" fill="none" stroke="#a8a8ad" stroke-width="1"/>
+  <rect x="712" y="456" width="10" height="6" rx="1" fill="none" stroke="#a8a8ad" stroke-width="1"/>
+  <rect x="722" y="458" width="1.4" height="2" fill="#a8a8ad"/>
+  <rect x="713" y="457" width="6" height="4" fill="#a8a8ad"/>
+  <!-- Clock -->
+  <text x="784" y="458" font-size="11" fill="#ffffff" text-anchor="end">14:32</text>
+  <text x="784" y="470" font-size="9" fill="#a8a8ad" text-anchor="end">07.07.2026</text>
+
+  <!-- Utility window -->
+  <g filter="url(#winShadow)">
+    <rect x="225" y="110" width="350" height="280" rx="8" fill="#1c1c1e" stroke="#38383c" stroke-width="1"/>
+  </g>
+
+  <!-- Title bar shield icon -->
+  <g transform="translate(239, 126)">
+    <path d="M-6,-8 L6,-8 L6,-2 Q6,4 0,8 Q-6,4 -6,-2 Z" fill="#7274FF"/>
+    <path d="M-2.5,-1 L-0.5,1 L3,-3" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="261" y="132" font-size="12" fill="#ffffff">Defender Control v2.1</text>
+
+  <!-- Window controls -->
+  <line x1="464" y1="126" x2="474" y2="126" stroke="#ffffff" stroke-width="1.2"/>
+  <rect x="509" y="122" width="8" height="8" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="553" y1="122" x2="561" y2="130" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="561" y1="122" x2="553" y2="130" stroke="#ffffff" stroke-width="1.2"/>
+
+  <!-- Title divider -->
+  <line x1="225" y1="142" x2="575" y2="142" stroke="#2e2e32" stroke-width="1"/>
+
+  <!-- Sordum row -->
+  <rect x="239" y="154" width="22" height="22" rx="4" fill="#7274FF"/>
+  <text x="250" y="170" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">S</text>
+  <text x="269" y="172" font-size="13" font-weight="600" fill="#ffffff">Sordum</text>
+  <text x="561" y="172" font-size="10" fill="#6d6d75" text-anchor="end">v2.1</text>
+
+  <!-- Second divider -->
+  <line x1="225" y1="192" x2="575" y2="192" stroke="#2e2e32" stroke-width="1"/>
+
+  <!-- Status line -->
+  <text x="239" y="222" font-size="12" fill="#ffffff">Защитник Windows:</text>
+  <text x="365" y="222" font-size="12" font-weight="700" fill="#d13438">ОТКЛЮЧЕН</text>
+
+  <!-- Sub-status -->
+  <circle cx="243" cy="240" r="3" fill="#d13438"/>
+  <text x="253" y="244" font-size="11" fill="#a8a8ad">Служба остановлена</text>
+
+  <!-- Big red button -->
+  <rect x="250" y="268" width="300" height="52" rx="8" fill="url(#redBtn)" stroke="#8a1e26" stroke-width="1"/>
+  <!-- Shield with slash icon -->
+  <g transform="translate(280, 294)">
+    <path d="M-8,-10 L8,-10 L8,-2 Q8,6 0,11 Q-8,6 -8,-2 Z" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+    <line x1="-9" y1="9" x2="9" y2="-9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  <text x="410" y="300" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">Disable Windows Defender</text>
+
+  <!-- Hint text -->
+  <text x="400" y="340" font-size="10" fill="#6d6d75" text-anchor="middle">Menu → Options → Advanced</text>
+
+  <!-- Bottom divider -->
+  <line x1="225" y1="356" x2="575" y2="356" stroke="#2e2e32" stroke-width="1"/>
+
+  <!-- Status bar -->
+  <circle cx="243" cy="374" r="2.5" fill="#d13438"/>
+  <text x="250" y="377" font-size="9" fill="#a8a8ad">Real-Time Protection: OFF</text>
+  <text x="561" y="377" font-size="9" fill="#6d6d75" text-anchor="end">www.sordum.org</text>
 </svg>

@@ -1,131 +1,137 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Segoe UI, system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="Segoe UI, system-ui, sans-serif">
   <!-- Window background -->
-  <rect x="0" y="0" width="800" height="450" rx="8" fill="#1c1c2e"/>
-  
+  <rect x="0" y="0" width="800" height="480" rx="8" fill="#1c1c1e"/>
+
   <!-- Title bar -->
-  <rect x="0" y="0" width="800" height="30" rx="8" fill="#16162a"/>
-  <rect x="0" y="15" width="800" height="15" fill="#16162a"/>
-  <text x="14" y="20" font-size="12" fill="#eaeaf2">Программы и компоненты</text>
-  <!-- Window buttons -->
-  <text x="735" y="20" font-size="14" fill="#9c9cb4">—</text>
-  <rect x="752" y="10" width="10" height="10" fill="none" stroke="#9c9cb4" stroke-width="1"/>
-  <text x="778" y="20" font-size="13" fill="#9c9cb4">×</text>
-  
-  <!-- Toolbar / breadcrumb -->
-  <rect x="0" y="30" width="800" height="32" fill="#22223a"/>
-  <rect x="0" y="61" width="800" height="1" fill="#2a2a48"/>
-  <!-- Back/forward arrows -->
-  <circle cx="18" cy="46" r="9" fill="#1c1c2e" stroke="#2a2a48"/>
-  <text x="14" y="50" font-size="12" fill="#9c9cb4">‹</text>
-  <circle cx="40" cy="46" r="9" fill="#1c1c2e" stroke="#2a2a48"/>
-  <text x="36" y="50" font-size="12" fill="#5c5c74">›</text>
-  <!-- Address bar -->
-  <rect x="58" y="37" width="620" height="18" rx="4" fill="#16162a" stroke="#2a2a48"/>
-  <text x="66" y="50" font-size="11" fill="#eaeaf2">Панель управления  ›  Все элементы панели управления  ›  Программы и компоненты</text>
-  <!-- Search -->
-  <rect x="685" y="37" width="100" height="18" rx="4" fill="#16162a" stroke="#2a2a48"/>
-  <text x="692" y="50" font-size="10" fill="#5c5c74">Поиск</text>
-  
-  <!-- Left sidebar -->
-  <rect x="0" y="62" width="170" height="366" fill="#16162a"/>
-  <rect x="170" y="62" width="1" height="366" fill="#2a2a48"/>
-  <text x="12" y="82" font-size="10" fill="#9c9cb4">Панель управления —</text>
-  <text x="12" y="95" font-size="10" fill="#9c9cb4">главная страница</text>
-  <line x1="12" y1="108" x2="158" y2="108" stroke="#2a2a48" stroke-width="1"/>
-  
-  <text x="12" y="128" font-size="10" fill="#eaeaf2">Просмотр установленных</text>
-  <text x="12" y="141" font-size="10" fill="#eaeaf2">обновлений</text>
-  
-  <text x="12" y="165" font-size="10" fill="#eaeaf2">Включение или отключение</text>
-  <text x="12" y="178" font-size="10" fill="#eaeaf2">компонентов Windows</text>
-  
-  <text x="12" y="202" font-size="10" fill="#eaeaf2">Установка программы</text>
-  <text x="12" y="215" font-size="10" fill="#eaeaf2">из сети</text>
-  
-  <!-- Main area heading -->
-  <text x="185" y="82" font-size="13" fill="#eaeaf2" font-weight="600">Удаление или изменение программы</text>
-  <text x="185" y="100" font-size="10" fill="#9c9cb4">Для удаления программы выберите ее в списке и щелкните "Удалить".</text>
-  
-  <!-- List header -->
-  <rect x="180" y="115" width="612" height="26" fill="#16162a" stroke="#2a2a48"/>
-  <text x="192" y="132" font-size="11" fill="#eaeaf2" font-weight="600">Имя</text>
-  <line x1="380" y1="118" x2="380" y2="139" stroke="#2a2a48"/>
-  <text x="390" y="132" font-size="11" fill="#eaeaf2" font-weight="600">Издатель</text>
-  <line x1="540" y1="118" x2="540" y2="139" stroke="#2a2a48"/>
-  <text x="550" y="132" font-size="11" fill="#eaeaf2" font-weight="600">Установлено</text>
-  <line x1="670" y1="118" x2="670" y2="139" stroke="#2a2a48"/>
-  <text x="680" y="132" font-size="11" fill="#eaeaf2" font-weight="600">Размер</text>
-  
-  <!-- List rows -->
-  <!-- Row 1 -->
-  <rect x="180" y="141" width="612" height="28" fill="#1c1c2e"/>
-  <rect x="184" y="148" width="14" height="14" rx="2" fill="#22223a"/>
-  <text x="205" y="159" font-size="11" fill="#eaeaf2">Google Chrome</text>
-  <text x="390" y="159" font-size="11" fill="#9c9cb4">Google LLC</text>
-  <text x="550" y="159" font-size="11" fill="#9c9cb4">15.03.2026</text>
-  <text x="680" y="159" font-size="11" fill="#9c9cb4">245 МБ</text>
-  
-  <!-- Row 2 HIGHLIGHTED -->
-  <rect x="180" y="169" width="612" height="28" fill="#7274FF" fill-opacity="0.25"/>
-  <rect x="180" y="169" width="2" height="28" fill="#7274FF"/>
-  <rect x="184" y="176" width="14" height="14" rx="2" fill="#7274FF"/>
-  <path d="M187 183 L190 186 L195 179" stroke="#eaeaf2" stroke-width="1.5" fill="none"/>
-  <text x="205" y="187" font-size="11" fill="#eaeaf2" font-weight="600">Kaspersky Total Security</text>
-  <text x="390" y="187" font-size="11" fill="#eaeaf2">Лаборатория Касперского</text>
-  <text x="550" y="187" font-size="11" fill="#eaeaf2">22.05.2026</text>
-  <text x="680" y="187" font-size="11" fill="#eaeaf2">1,2 ГБ</text>
-  
-  <!-- Row 3 -->
-  <rect x="180" y="197" width="612" height="28" fill="#1c1c2e"/>
-  <rect x="184" y="204" width="14" height="14" rx="2" fill="#22223a"/>
-  <text x="205" y="215" font-size="11" fill="#eaeaf2">Microsoft Edge</text>
-  <text x="390" y="215" font-size="11" fill="#9c9cb4">Microsoft Corp.</text>
-  <text x="550" y="215" font-size="11" fill="#9c9cb4">01.06.2026</text>
-  <text x="680" y="215" font-size="11" fill="#9c9cb4">187 МБ</text>
-  
-  <!-- Row 4 -->
-  <rect x="180" y="225" width="612" height="28" fill="#1c1c2e"/>
-  <rect x="184" y="232" width="14" height="14" rx="2" fill="#22223a"/>
-  <text x="205" y="243" font-size="11" fill="#eaeaf2">NVIDIA Graphics Driver</text>
-  <text x="390" y="243" font-size="11" fill="#9c9cb4">NVIDIA</text>
-  <text x="550" y="243" font-size="11" fill="#9c9cb4">10.06.2026</text>
-  <text x="680" y="243" font-size="11" fill="#9c9cb4">892 МБ</text>
-  
-  <!-- Row 5 -->
-  <rect x="180" y="253" width="612" height="28" fill="#1c1c2e"/>
-  <rect x="184" y="260" width="14" height="14" rx="2" fill="#22223a"/>
-  <text x="205" y="271" font-size="11" fill="#eaeaf2">Steam</text>
-  <text x="390" y="271" font-size="11" fill="#9c9cb4">Valve</text>
-  <text x="550" y="271" font-size="11" fill="#9c9cb4">15.02.2026</text>
-  <text x="680" y="271" font-size="11" fill="#9c9cb4">512 МБ</text>
-  
-  <!-- Row 6 -->
-  <rect x="180" y="281" width="612" height="28" fill="#1c1c2e"/>
-  <rect x="184" y="288" width="14" height="14" rx="2" fill="#22223a"/>
-  <text x="205" y="299" font-size="11" fill="#eaeaf2">Visual Studio Code</text>
-  <text x="390" y="299" font-size="11" fill="#9c9cb4">Microsoft</text>
-  <text x="550" y="299" font-size="11" fill="#9c9cb4">01.05.2026</text>
-  <text x="680" y="299" font-size="11" fill="#9c9cb4">320 МБ</text>
-  
-  <!-- Context menu popup over row 2 -->
-  <rect x="290" y="188" width="140" height="82" rx="6" fill="#22223a" stroke="#2a2a48" stroke-width="1"/>
-  <rect x="290" y="188" width="140" height="82" rx="6" fill="none" stroke="#000" stroke-opacity="0.3"/>
-  <!-- shadow feel -->
-  <rect x="292" y="270" width="140" height="3" fill="#000" fill-opacity="0.25"/>
-  
-  <!-- Menu item Удалить highlighted -->
-  <rect x="294" y="193" width="132" height="22" rx="4" fill="#7274FF"/>
-  <text x="304" y="208" font-size="11" fill="#eaeaf2" font-weight="600">Удалить</text>
-  
-  <text x="304" y="234" font-size="11" fill="#eaeaf2">Изменить</text>
-  <text x="304" y="258" font-size="11" fill="#eaeaf2">Восстановить</text>
-  
-  <line x1="298" y1="219" x2="422" y2="219" stroke="#2a2a48"/>
-  
+  <text x="14" y="22" font-size="12" fill="#ffffff">Программы и компоненты</text>
+  <!-- Window controls -->
+  <line x1="694" y1="16" x2="704" y2="16" stroke="#ffffff" stroke-width="1.2"/>
+  <rect x="738" y="12" width="8" height="8" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="782" y1="12" x2="790" y2="20" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="790" y1="12" x2="782" y2="20" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="0" y1="32" x2="800" y2="32" stroke="#2e2e32" stroke-width="1"/>
+
+  <!-- Toolbar / breadcrumb strip -->
+  <rect x="0" y="32" width="800" height="36" fill="#202024"/>
+  <circle cx="24" cy="52" r="10" fill="#2a2a2e" stroke="#38383c" stroke-width="1"/>
+  <path d="M27,48 L21,52 L27,56" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="52" cy="52" r="10" fill="#2a2a2e" stroke="#38383c" stroke-width="1"/>
+  <path d="M49,48 L55,52 L49,56" fill="none" stroke="#6d6d75" stroke-width="1.2"/>
+
+  <rect x="68" y="42" width="600" height="20" rx="4" fill="#2a2a2e" stroke="#38383c" stroke-width="1"/>
+  <text x="74" y="56" font-size="11" fill="#a8a8ad">Панель управления › Все элементы панели управления › Программы и компоненты</text>
+
+  <rect x="680" y="42" width="104" height="20" rx="4" fill="#2a2a2e" stroke="#38383c" stroke-width="1"/>
+  <text x="688" y="56" font-size="11" fill="#6d6d75">Поиск</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="68" width="200" height="384" fill="#202024"/>
+  <line x1="200" y1="68" x2="200" y2="452" stroke="#2e2e32" stroke-width="1"/>
+
+  <text x="14" y="94" font-size="10" fill="#a8a8ad">Панель управления —</text>
+  <text x="14" y="108" font-size="10" fill="#a8a8ad">главная страница</text>
+
+  <line x1="14" y1="120" x2="186" y2="120" stroke="#2e2e32" stroke-width="1"/>
+
+  <text x="14" y="144" font-size="10" fill="#ffffff">Просмотр установленных</text>
+  <text x="14" y="158" font-size="10" fill="#ffffff">обновлений</text>
+
+  <text x="14" y="182" font-size="10" fill="#ffffff">Включение или отключение</text>
+  <text x="14" y="196" font-size="10" fill="#ffffff">компонентов Windows</text>
+
+  <text x="14" y="220" font-size="10" fill="#ffffff">Установка программы</text>
+  <text x="14" y="234" font-size="10" fill="#ffffff">из сети</text>
+
+  <!-- Main content -->
+  <text x="220" y="94" font-size="14" font-weight="600" fill="#ffffff">Удаление или изменение программы</text>
+  <text x="220" y="112" font-size="11" fill="#a8a8ad">Для удаления программы выберите её в списке и нажмите Удалить.</text>
+
+  <!-- Column headers -->
+  <rect x="200" y="130" width="600" height="28" fill="#202024"/>
+  <line x1="200" y1="158" x2="800" y2="158" stroke="#2e2e32" stroke-width="1"/>
+  <text x="252" y="148" font-size="11" font-weight="600" fill="#ffffff">Имя</text>
+  <text x="440" y="148" font-size="11" font-weight="600" fill="#ffffff">Издатель</text>
+  <text x="580" y="148" font-size="11" font-weight="600" fill="#ffffff">Установлено</text>
+  <text x="690" y="148" font-size="11" font-weight="600" fill="#ffffff">Размер</text>
+  <line x1="432" y1="132" x2="432" y2="156" stroke="#2e2e32" stroke-width="1"/>
+  <line x1="572" y1="132" x2="572" y2="156" stroke="#2e2e32" stroke-width="1"/>
+  <line x1="682" y1="132" x2="682" y2="156" stroke="#2e2e32" stroke-width="1"/>
+
+  <!-- Row 1: Google Chrome -->
+  <rect x="200" y="158" width="600" height="30" fill="#1c1c1e"/>
+  <rect x="214" y="167" width="12" height="12" rx="2" fill="none" stroke="#6d6d75" stroke-width="1"/>
+  <text x="252" y="176" font-size="12" fill="#ffffff">Google Chrome</text>
+  <text x="440" y="176" font-size="12" fill="#a8a8ad">Google LLC</text>
+  <text x="580" y="176" font-size="12" fill="#a8a8ad">15.03.2026</text>
+  <text x="690" y="176" font-size="12" fill="#a8a8ad">245 МБ</text>
+
+  <!-- Row 2: Kaspersky (SELECTED) -->
+  <rect x="200" y="188" width="600" height="30" fill="#3c5ed6" fill-opacity="0.3"/>
+  <rect x="214" y="197" width="12" height="12" rx="2" fill="#7274FF" stroke="#7274FF" stroke-width="1"/>
+  <path d="M217,203 L220,206 L224,200" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="252" y="206" font-size="12" fill="#ffffff">Kaspersky Total Security</text>
+  <text x="440" y="206" font-size="12" fill="#ffffff">Лаборатория Касперского</text>
+  <text x="580" y="206" font-size="12" fill="#ffffff">22.05.2026</text>
+  <text x="690" y="206" font-size="12" fill="#ffffff">1,2 ГБ</text>
+
+  <!-- Row 3: Microsoft Edge -->
+  <rect x="200" y="218" width="600" height="30" fill="#1e1e22"/>
+  <rect x="214" y="227" width="12" height="12" rx="2" fill="none" stroke="#6d6d75" stroke-width="1"/>
+  <text x="252" y="236" font-size="12" fill="#ffffff">Microsoft Edge</text>
+  <text x="440" y="236" font-size="12" fill="#a8a8ad">Microsoft Corp.</text>
+  <text x="580" y="236" font-size="12" fill="#a8a8ad">10.02.2026</text>
+  <text x="690" y="236" font-size="12" fill="#a8a8ad">312 МБ</text>
+
+  <!-- Row 4: NVIDIA Graphics Driver -->
+  <rect x="200" y="248" width="600" height="30" fill="#1c1c1e"/>
+  <rect x="214" y="257" width="12" height="12" rx="2" fill="none" stroke="#6d6d75" stroke-width="1"/>
+  <text x="252" y="266" font-size="12" fill="#ffffff">NVIDIA Graphics Driver</text>
+  <text x="440" y="266" font-size="12" fill="#a8a8ad">NVIDIA Corporation</text>
+  <text x="580" y="266" font-size="12" fill="#a8a8ad">18.06.2026</text>
+  <text x="690" y="266" font-size="12" fill="#a8a8ad">876 МБ</text>
+
+  <!-- Row 5: Steam -->
+  <rect x="200" y="278" width="600" height="30" fill="#1e1e22"/>
+  <rect x="214" y="287" width="12" height="12" rx="2" fill="none" stroke="#6d6d75" stroke-width="1"/>
+  <text x="252" y="296" font-size="12" fill="#ffffff">Steam</text>
+  <text x="440" y="296" font-size="12" fill="#a8a8ad">Valve Corporation</text>
+  <text x="580" y="296" font-size="12" fill="#a8a8ad">04.01.2026</text>
+  <text x="690" y="296" font-size="12" fill="#a8a8ad">520 МБ</text>
+
+  <!-- Row 6: Visual Studio Code -->
+  <rect x="200" y="308" width="600" height="30" fill="#1c1c1e"/>
+  <rect x="214" y="317" width="12" height="12" rx="2" fill="none" stroke="#6d6d75" stroke-width="1"/>
+  <text x="252" y="326" font-size="12" fill="#ffffff">Visual Studio Code</text>
+  <text x="440" y="326" font-size="12" fill="#a8a8ad">Microsoft Corp.</text>
+  <text x="580" y="326" font-size="12" fill="#a8a8ad">28.04.2026</text>
+  <text x="690" y="326" font-size="12" fill="#a8a8ad">380 МБ</text>
+
+  <!-- Vertical column separators over rows -->
+  <line x1="432" y1="158" x2="432" y2="338" stroke="#2e2e32" stroke-width="1"/>
+  <line x1="572" y1="158" x2="572" y2="338" stroke="#2e2e32" stroke-width="1"/>
+  <line x1="682" y1="158" x2="682" y2="338" stroke="#2e2e32" stroke-width="1"/>
+
+  <!-- Context menu shadow -->
+  <rect x="402" y="197" width="160" height="90" rx="6" fill="#000000" fill-opacity="0.35"/>
+  <!-- Context menu popup -->
+  <rect x="400" y="195" width="160" height="90" rx="6" fill="#2a2a2e" stroke="#38383c" stroke-width="1"/>
+  <!-- Item 1: Удалить (highlighted) -->
+  <rect x="404" y="199" width="152" height="26" rx="4" fill="#7274FF"/>
+  <!-- Trash icon -->
+  <rect x="414" y="207" width="8" height="9" rx="1" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="412" y1="207" x2="424" y2="207" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="416" y1="205" x2="420" y2="205" stroke="#ffffff" stroke-width="1.2"/>
+  <text x="432" y="216" font-size="12" font-weight="600" fill="#ffffff">Удалить</text>
+  <line x1="408" y1="227" x2="552" y2="227" stroke="#38383c" stroke-width="1"/>
+  <!-- Item 2: Изменить -->
+  <text x="418" y="242" font-size="12" fill="#ffffff">Изменить</text>
+  <!-- Item 3: Восстановить -->
+  <text x="418" y="268" font-size="12" fill="#ffffff">Восстановить</text>
+
   <!-- Status bar -->
-  <rect x="0" y="428" width="800" height="22" fill="#16162a"/>
-  <rect x="0" y="428" width="800" height="1" fill="#2a2a48"/>
-  <text x="14" y="443" font-size="10" fill="#9c9cb4">6 объектов</text>
-  <line x1="90" y1="432" x2="90" y2="446" stroke="#2a2a48"/>
-  <text x="100" y="443" font-size="10" fill="#9c9cb4">Выбрано: 1</text>
+  <rect x="0" y="452" width="800" height="28" fill="#202024"/>
+  <line x1="0" y1="452" x2="800" y2="452" stroke="#2e2e32" stroke-width="1"/>
+  <text x="14" y="470" font-size="11" fill="#a8a8ad">6 объектов</text>
+  <line x1="90" y1="460" x2="90" y2="472" stroke="#38383c" stroke-width="1"/>
+  <text x="100" y="470" font-size="11" fill="#a8a8ad">Выбрано: 1</text>
 </svg>
