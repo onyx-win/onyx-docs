@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Segoe UI, system-ui, sans-serif">
+  <!-- Desktop background -->
+  <rect width="800" height="450" fill="#1c1c2e"/>
+  
+  <!-- ============ FILE EXPLORER WINDOW (back layer) ============ -->
+  <g transform="translate(70, 30)">
+    <!-- Window shadow -->
+    <rect x="2" y="3" width="700" height="380" rx="8" fill="#000" opacity="0.35"/>
+    <!-- Window body -->
+    <rect width="700" height="380" rx="8" fill="#1c1c2e" stroke="#2a2a48" stroke-width="1"/>
+    
+    <!-- Title bar -->
+    <rect width="700" height="32" rx="8" fill="#16162a"/>
+    <rect y="24" width="700" height="8" fill="#16162a"/>
+    <!-- Folder icon in title -->
+    <rect x="12" y="10" width="14" height="11" rx="1.5" fill="#7274FF"/>
+    <rect x="12" y="8" width="6" height="3" rx="1" fill="#7274FF"/>
+    <text x="34" y="20" fill="#eaeaf2" font-size="12">Temp</text>
+    <!-- Window controls -->
+    <text x="640" y="21" fill="#9c9cb4" font-size="14">—</text>
+    <text x="658" y="21" fill="#9c9cb4" font-size="12">▢</text>
+    <rect x="675" y="8" width="20" height="18" rx="2" fill="transparent"/>
+    <text x="680" y="21" fill="#9c9cb4" font-size="14">✕</text>
+    
+    <!-- Toolbar -->
+    <rect y="32" width="700" height="34" fill="#22223a"/>
+    <!-- Nav icons -->
+    <text x="14" y="53" fill="#eaeaf2" font-size="14">←</text>
+    <text x="36" y="53" fill="#5c5c74" font-size="14">→</text>
+    <text x="58" y="53" fill="#eaeaf2" font-size="14">↑</text>
+    <text x="80" y="53" fill="#eaeaf2" font-size="13">↻</text>
+    <!-- Divider -->
+    <line x1="100" y1="40" x2="100" y2="58" stroke="#2a2a48" stroke-width="1"/>
+    <!-- Address bar -->
+    <rect x="110" y="40" width="440" height="20" rx="4" fill="#16162a" stroke="#2a2a48" stroke-width="1"/>
+    <text x="118" y="54" fill="#eaeaf2" font-size="10.5">📁 › Этот компьютер › Локальный диск (C:) › Users › User › AppData › Local › Temp</text>
+    <!-- Search box -->
+    <rect x="560" y="40" width="128" height="20" rx="4" fill="#16162a" stroke="#2a2a48" stroke-width="1"/>
+    <text x="568" y="54" fill="#5c5c74" font-size="10.5">🔍 Поиск: Temp</text>
+    
+    <!-- Column headers -->
+    <rect y="66" width="700" height="26" fill="#16162a"/>
+    <text x="42" y="83" fill="#9c9cb4" font-size="11">Имя</text>
+    <text x="340" y="83" fill="#9c9cb4" font-size="11">Дата изменения</text>
+    <text x="480" y="83" fill="#9c9cb4" font-size="11">Тип</text>
+    <text x="620" y="83" fill="#9c9cb4" font-size="11">Размер</text>
+    <line x1="0" y1="92" x2="700" y2="92" stroke="#2a2a48" stroke-width="1"/>
+    
+    <!-- File list rows (all selected - indigo 15% opacity) -->
+    <g font-size="11" fill="#eaeaf2">
+      <!-- Row 1 -->
+      <rect y="92" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="99" width="14" height="10" rx="1" fill="#f0c040"/>
+      <rect x="14" y="97" width="6" height="3" rx="0.5" fill="#f0c040"/>
+      <text x="36" y="108">chrome_BITS_1a2b3c4d</text>
+      <text x="340" y="108" fill="#9c9cb4">05.07.2026 15:24</text>
+      <text x="480" y="108" fill="#9c9cb4">Папка с файлами</text>
+      <text x="620" y="108" fill="#9c9cb4">—</text>
+      
+      <!-- Row 2 -->
+      <rect y="116" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="122" width="12" height="14" rx="1" fill="#22223a" stroke="#5c5c74" stroke-width="1"/>
+      <text x="36" y="132">tmp_A5F3.tmp</text>
+      <text x="340" y="132" fill="#9c9cb4">05.07.2026 15:22</text>
+      <text x="480" y="132" fill="#9c9cb4">Файл TMP</text>
+      <text x="620" y="132" fill="#9c9cb4">12 КБ</text>
+      
+      <!-- Row 3 -->
+      <rect y="140" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="146" width="12" height="14" rx="1" fill="#22223a" stroke="#5c5c74" stroke-width="1"/>
+      <text x="36" y="156">setup_log.txt</text>
+      <text x="340" y="156" fill="#9c9cb4">05.07.2026 15:20</text>
+      <text x="480" y="156" fill="#9c9cb4">Текстовый документ</text>
+      <text x="620" y="156" fill="#9c9cb4">4 КБ</text>
+      
+      <!-- Row 4 -->
+      <rect y="164" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="171" width="14" height="10" rx="1" fill="#f0c040"/>
+      <rect x="14" y="169" width="6" height="3" rx="0.5" fill="#f0c040"/>
+      <text x="36" y="180">discord_cache</text>
+      <text x="340" y="180" fill="#9c9cb4">05.07.2026 14:58</text>
+      <text x="480" y="180" fill="#9c9cb4">Папка с файлами</text>
+      <text x="620" y="180" fill="#9c9cb4">—</text>
+      
+      <!-- Row 5 -->
+      <rect y="188" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="194" width="12" height="14" rx="1" fill="#22223a" stroke="#5c5c74" stroke-width="1"/>
+      <text x="36" y="204">Steam_bootstrap.log</text>
+      <text x="340" y="204" fill="#9c9cb4">05.07.2026 14:42</text>
+      <text x="480" y="204" fill="#9c9cb4">Файл LOG</text>
+      <text x="620" y="204" fill="#9c9cb4">28 КБ</text>
+      
+      <!-- Row 6 -->
+      <rect y="212" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="219" width="14" height="10" rx="1" fill="#f0c040"/>
+      <rect x="14" y="217" width="6" height="3" rx="0.5" fill="#f0c040"/>
+      <text x="36" y="228">nvidia_installer_temp</text>
+      <text x="340" y="228" fill="#9c9cb4">05.07.2026 13:15</text>
+      <text x="480" y="228" fill="#9c9cb4">Папка с файлами</text>
+      <text x="620" y="228" fill="#9c9cb4">—</text>
+      
+      <!-- Row 7 -->
+      <rect y="236" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="242" width="12" height="14" rx="1" fill="#22223a" stroke="#5c5c74" stroke-width="1"/>
+      <text x="36" y="252">~DF8E2A.TMP</text>
+      <text x="340" y="252" fill="#9c9cb4">05.07.2026 12:47</text>
+      <text x="480" y="252" fill="#9c9cb4">Файл TMP</text>
+      <text x="620" y="252" fill="#9c9cb4">64 КБ</text>
+      
+      <!-- Row 8 -->
+      <rect y="260" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="266" width="12" height="14" rx="1" fill="#22223a" stroke="#5c5c74" stroke-width="1"/>
+      <text x="36" y="276">MSI_Log_20260705.txt</text>
+      <text x="340" y="276" fill="#9c9cb4">05.07.2026 11:33</text>
+      <text x="480" y="276" fill="#9c9cb4">Текстовый документ</text>
+      <text x="620" y="276" fill="#9c9cb4">156 КБ</text>
+      
+      <!-- Row 9 -->
+      <rect y="284" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="290" width="14" height="10" rx="1" fill="#f0c040"/>
+      <rect x="14" y="288" width="6" height="3" rx="0.5" fill="#f0c040"/>
+      <text x="36" y="300">WPF_installer_cache</text>
+      <text x="340" y="300" fill="#9c9cb4">04.07.2026 22:10</text>
+      <text x="480" y="300" fill="#9c9cb4">Папка с файлами</text>
+      <text x="620" y="300" fill="#9c9cb4">—</text>
+      
+      <!-- Row 10 -->
+      <rect y="308" width="700" height="24" fill="#7274FF" fill-opacity="0.15"/>
+      <rect x="14" y="314" width="12" height="14" rx="1" fill="#22223a" stroke="#5c5c74" stroke-width="1"/>
+      <text x="36" y="324">jna-3506402.dll</text>
+      <text x="340" y="324" fill="#9c9cb4">04.07.2026 20:05</text>
+      <text x="480" y="324" fill="#9c9cb4">Расширение прил.</text>
+      <text x="620" y="324" fill="#9c9cb4">328 КБ</text>
+    </g>
+    
+    <!-- Status bar -->
+    <rect y="352" width="700" height="28" fill="#16162a"/>
+    <line x1="0" y1="352" x2="700" y2="352" stroke="#2a2a48" stroke-width="1"/>
+    <text x="14" y="370" fill="#9c9cb4" font-size="11">Выбрано элементов: 247 (156 МБ)</text>
+    <text x="620" y="370" fill="#5c5c74" font-size="11">247 элем.</text>
+  </g>
+  
+  <!-- ============ RUN DIALOG (front layer) ============ -->
+  <g transform="translate(50, 210)">
+    <!-- Dialog shadow -->
+    <rect x="3" y="4" width="360" height="150" rx="8" fill="#000" opacity="0.55"/>
+    <!-- Dialog body -->
+    <rect width="360" height="150" rx="8" fill="#22223a" stroke="#2a2a48" stroke-width="1"/>
+    
+    <!-- Title bar -->
+    <rect width="360" height="30" rx="8" fill="#16162a"/>
+    <rect y="22" width="360" height="8" fill="#16162a"/>
+    <text x="14" y="19" fill="#eaeaf2" font-size="11.5">Выполнить</text>
+    <!-- Close button -->
+    <text x="340" y="19" fill="#9c9cb4" font-size="12">✕</text>
+    
+    <!-- Content area -->
+    <!-- Run icon (arrow/gear stylized) -->
+    <circle cx="30" cy="58" r="12" fill="#7274FF" opacity="0.15"/>
+    <path d="M 22 58 L 34 58 M 30 54 L 34 58 L 30 62" stroke="#7274FF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="26" cy="58" r="1.8" fill="#7274FF"/>
+    
+    <!-- Description text -->
+    <text x="50" y="50" fill="#eaeaf2" font-size="10.5">Введите имя программы, папки, документа</text>
+    <text x="50" y="64" fill="#eaeaf2" font-size="10.5">или ресурса Интернета, и Windows откроет</text>
+    <text x="50" y="78" fill="#eaeaf2" font-size="10.5">их.</text>
+    
+    <!-- Input field label -->
+    <text x="14" y="102" fill="#eaeaf2" font-size="10.5">Открыть:</text>
+    <!-- Input field -->
+    <rect x="60" y="90" width="286" height="20" rx="4" fill="#16162a" stroke="#7274FF" stroke-width="1"/>
+    <text x="66" y="104" fill="#eaeaf2" font-size="11">%temp%</text>
+    <!-- Cursor -->
+    <line x1="106" y1="93" x2="106" y2="107" stroke="#eaeaf2" stroke-width="1"/>
+    
+    <!-- Buttons -->
+    <rect x="140" y="120" width="66" height="22" rx="4" fill="#7274FF"/>
+    <text x="167" y="135" fill="#ffffff" font-size="11" text-anchor="middle">ОК</text>
+    
+    <rect x="212" y="120" width="66" height="22" rx="4" fill="#2a2a48" stroke="#2a2a48" stroke-width="1"/>
+    <text x="245" y="135" fill="#eaeaf2" font-size="11" text-anchor="middle">Отмена</text>
+    
+    <rect x="284" y="120" width="66" height="22" rx="4" fill="#2a2a48" stroke="#2a2a48" stroke-width="1"/>
+    <text x="317" y="135" fill="#eaeaf2" font-size="11" text-anchor="middle">Обзор...</text>
+  </g>
+</svg>

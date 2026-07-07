@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Segoe UI, system-ui, sans-serif">
+  <!-- Window background -->
+  <rect x="0" y="0" width="800" height="450" rx="8" fill="#1c1c2e"/>
+  
+  <!-- Title bar -->
+  <rect x="0" y="0" width="800" height="36" rx="8" fill="#16162a"/>
+  <rect x="0" y="20" width="800" height="16" fill="#16162a"/>
+  
+  <!-- Shield icon in title bar -->
+  <path d="M 14 10 L 22 10 L 22 18 Q 22 24 18 26 Q 14 24 14 18 Z" fill="#7274FF"/>
+  <path d="M 16 17 L 17.5 18.5 L 20 15.5" stroke="#eaeaf2" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="32" y="23" fill="#eaeaf2" font-size="12">Безопасность Windows</text>
+  
+  <!-- Window buttons -->
+  <text x="730" y="24" fill="#9c9cb4" font-size="14">−</text>
+  <rect x="748" y="14" width="9" height="9" fill="none" stroke="#9c9cb4" stroke-width="1"/>
+  <text x="775" y="24" fill="#9c9cb4" font-size="12">✕</text>
+  
+  <!-- Left sidebar -->
+  <rect x="0" y="36" width="180" height="414" fill="#16162a"/>
+  
+  <!-- Sidebar items -->
+  <!-- Home -->
+  <circle cx="22" cy="66" r="6" fill="none" stroke="#9c9cb4" stroke-width="1.2"/>
+  <text x="38" y="70" fill="#eaeaf2" font-size="12">Домой</text>
+  
+  <!-- Virus & threat protection (active) -->
+  <rect x="0" y="90" width="3" height="30" fill="#7274FF"/>
+  <rect x="3" y="90" width="177" height="30" fill="#22223a"/>
+  <path d="M 16 100 L 24 100 L 24 108 Q 24 114 20 116 Q 16 114 16 108 Z" fill="#7274FF"/>
+  <text x="38" y="109" fill="#eaeaf2" font-size="11.5">Защита от вирусов</text>
+  <text x="38" y="120" fill="#eaeaf2" font-size="11.5">и угроз</text>
+  
+  <!-- Account protection -->
+  <circle cx="22" cy="140" r="6" fill="none" stroke="#9c9cb4" stroke-width="1.2"/>
+  <text x="38" y="144" fill="#9c9cb4" font-size="12">Защита учётной</text>
+  <text x="38" y="156" fill="#9c9cb4" font-size="12">записи</text>
+  
+  <!-- Firewall -->
+  <rect x="17" y="176" width="10" height="8" fill="none" stroke="#9c9cb4" stroke-width="1.2"/>
+  <text x="38" y="180" fill="#9c9cb4" font-size="12">Брандмауэр и</text>
+  <text x="38" y="192" fill="#9c9cb4" font-size="12">защита сети</text>
+  
+  <!-- App & browser control -->
+  <rect x="17" y="212" width="10" height="8" fill="none" stroke="#9c9cb4" stroke-width="1.2"/>
+  <text x="38" y="216" fill="#9c9cb4" font-size="12">Управление</text>
+  <text x="38" y="228" fill="#9c9cb4" font-size="12">приложениями</text>
+  
+  <!-- Main content -->
+  <text x="200" y="66" fill="#eaeaf2" font-size="18" font-weight="600">Параметры защиты от вирусов и других угроз</text>
+  <text x="200" y="84" fill="#9c9cb4" font-size="12">Просмотр и настройка параметров</text>
+  
+  <!-- Row 1: Real-time protection -->
+  <rect x="200" y="100" width="580" height="66" rx="6" fill="#22223a" stroke="#2a2a48" stroke-width="1"/>
+  <text x="214" y="122" fill="#eaeaf2" font-size="13" font-weight="600">Защита в реальном времени</text>
+  <text x="214" y="140" fill="#9c9cb4" font-size="11">Определение и остановка малвари в реальном времени.</text>
+  <rect x="214" y="150" width="70" height="16" rx="3" fill="#ff4757" opacity="0.15"/>
+  <text x="222" y="161" fill="#ff4757" font-size="10" font-weight="600">Отключено</text>
+  <!-- Toggle OFF -->
+  <rect x="730" y="124" width="34" height="18" rx="9" fill="#4a4a5c"/>
+  <circle cx="740" cy="133" r="6" fill="#eaeaf2"/>
+  
+  <!-- Row 2: Cloud protection -->
+  <rect x="200" y="174" width="580" height="66" rx="6" fill="#22223a" stroke="#2a2a48" stroke-width="1"/>
+  <text x="214" y="196" fill="#eaeaf2" font-size="13" font-weight="600">Облачная защита</text>
+  <text x="214" y="214" fill="#9c9cb4" font-size="11">Мгновенная защита из облака Microsoft.</text>
+  <rect x="214" y="224" width="70" height="16" rx="3" fill="#ff4757" opacity="0.15"/>
+  <text x="222" y="235" fill="#ff4757" font-size="10" font-weight="600">Отключено</text>
+  <rect x="730" y="198" width="34" height="18" rx="9" fill="#4a4a5c"/>
+  <circle cx="740" cy="207" r="6" fill="#eaeaf2"/>
+  
+  <!-- Row 3: Automatic sample submission -->
+  <rect x="200" y="248" width="580" height="66" rx="6" fill="#22223a" stroke="#2a2a48" stroke-width="1"/>
+  <text x="214" y="270" fill="#eaeaf2" font-size="13" font-weight="600">Автоматическая отправка образцов</text>
+  <text x="214" y="288" fill="#9c9cb4" font-size="11">Отправка образцов вредоносных файлов в Microsoft.</text>
+  <rect x="214" y="298" width="70" height="16" rx="3" fill="#ff4757" opacity="0.15"/>
+  <text x="222" y="309" fill="#ff4757" font-size="10" font-weight="600">Отключено</text>
+  <rect x="730" y="272" width="34" height="18" rx="9" fill="#4a4a5c"/>
+  <circle cx="740" cy="281" r="6" fill="#eaeaf2"/>
+  
+  <!-- Row 4: Tamper protection -->
+  <rect x="200" y="322" width="580" height="66" rx="6" fill="#22223a" stroke="#2a2a48" stroke-width="1"/>
+  <text x="214" y="344" fill="#eaeaf2" font-size="13" font-weight="600">Защита от подделки</text>
+  <text x="214" y="362" fill="#9c9cb4" font-size="11">Предотвращает изменение параметров безопасности.</text>
+  <rect x="214" y="372" width="70" height="16" rx="3" fill="#ff4757" opacity="0.15"/>
+  <text x="222" y="383" fill="#ff4757" font-size="10" font-weight="600">Отключено</text>
+  <rect x="730" y="346" width="34" height="18" rx="9" fill="#4a4a5c"/>
+  <circle cx="740" cy="355" r="6" fill="#eaeaf2"/>
+</svg>
