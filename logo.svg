@@ -1,15 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
   <defs>
-    <linearGradient id="onyxOuter" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#9698FF"/>
-      <stop offset="1" stop-color="#4E51E0"/>
-    </linearGradient>
-    <linearGradient id="onyxInner" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0a0a12"/>
-      <stop offset="1" stop-color="#141428"/>
+    <linearGradient id="onyxGrad" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8A8CFF"/>
+      <stop offset="1" stop-color="#5C5EEB"/>
     </linearGradient>
   </defs>
-  <path d="M32 4 L56 18 V46 L32 60 L8 46 V18 Z" fill="url(#onyxOuter)"/>
-  <path d="M32 16 L46 24 V40 L32 48 L18 40 V24 Z" fill="url(#onyxInner)"/>
-  <path d="M32 22 L40 27 V37 L32 42 L24 37 V27 Z" fill="url(#onyxOuter)" opacity="0.9"/>
+  <!-- Hexagon shell -->
+  <path d="M50 4 L88 24 V76 L50 96 L12 76 V24 Z" fill="url(#onyxGrad)"/>
+  <!-- Inner banner mark (matches Onyx style) -->
+  <path d="M30 32 L72 32 L58 48 L42 48 L50 56 L62 56 L46 76 Z" fill="#0a0a12"/>
 </svg>
